@@ -1,2 +1,3 @@
-# RoR-Thinknetica
-Thinknetica Lesson
+# RoR-TestGuru
+Lesson project TestGuru
+
