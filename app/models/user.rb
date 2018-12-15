@@ -1,12 +1,10 @@
 class User < ApplicationRecord
-  attr_reader :current_tests
 
-  def current_test(test)
-    @current_tests ||= []
-    @current_tests << test
-  end
-
-  def current_test_whis_level(level)
-    @current_tests.select { |test| test.level == level}
+  def current_test_with_level(level)
+    test_ids = []
+    Result.where(user_id: self.id).each do |test|
+      test_ids << test.test_id
+    end
+    Test.where(id: test_ids).where("level = :level", level: level)
   end
 end
