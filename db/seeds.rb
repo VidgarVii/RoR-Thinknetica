@@ -42,5 +42,4 @@ Result.create([
   {user_id: 1, test_id: 2, status: true},
   {user_id: 1, test_id: 3},
   {user_id: 2, test_id: 3},
-
 ])
