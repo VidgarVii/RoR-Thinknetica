@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :tests
+  has_many :author, class_name: 'Test', foreign_key: 'user_id'
   has_many :results
   has_many :tests, through: :results
 
