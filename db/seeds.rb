@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create!([
+  {name: 'Admin', email: 'admin@admin.ru', password: '123'},
   {name: 'Pasha', email: 'a@a.ru', password: '123'},
   {name: 'Olya', email: 'a@a.ru', password: '123'}
 ])
@@ -16,9 +17,9 @@ category = Category.create!([
   {title: 'other'}
 ])
 test = Test.create!([
-  {title: 'Ruby', level: 1, category_id: category[0].id},
-  {title: 'TypeScript', level: 1, category_id: category[0].id},
-  {title: 'IQ', level: 0, category_id: category[1].id}
+  {title: 'Ruby', level: 1, category_id: category[0].id, user_id: user[0].id},
+  {title: 'TypeScript', level: 1, category_id: category[0].id, user_id: user[0].id},
+  {title: 'IQ', level: 0, category_id: category[1].id, user_id: user[0].id}
 ])
 question = Question.create!([
   {body: 'Что вернет следующие выражание? 57 / 0', test_id: test[0].id},
@@ -38,8 +39,8 @@ answer = Answer.create!([
 ])
 
 Result.create!([
-  {user_id: user[0].id, test_id: test[0].id},
-  {user_id: user[0].id, test_id: test[1].id, status: true},
-  {user_id: user[0].id, test_id: test[2].id},
+  {user_id: user[1].id, test_id: test[0].id},
+  {user_id: user[1].id, test_id: test[1].id, status: true},
   {user_id: user[1].id, test_id: test[2].id},
+  {user_id: user[2].id, test_id: test[2].id},
 ])
