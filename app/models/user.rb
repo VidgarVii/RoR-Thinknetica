@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :author, class_name: 'Test', foreign_key: 'user_id'
-  has_many :results
+  has_many :results, dependent: :delete_all
   has_many :tests, through: :results
 
   def current_test_with_level(level)
