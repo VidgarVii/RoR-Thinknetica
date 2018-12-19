@@ -5,10 +5,10 @@ class Test < ApplicationRecord
   belongs_to :category
   belongs_to :authored_tests, class_name: 'User', foreign_key: 'user_id'
   validates :title, presence: true,
-                    uniqueness: { only_integer: true, 
-                                  scope: :level, 
+                    uniqueness: { scope: :level, 
                                   message: :uniq_title_with_level }
-  validates :level, numericality: { greater_than_or_equal_to: 0 }
+  validates :level, numericality: { greater_than_or_equal_to: 0,
+                                    only_integer: true  }
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
