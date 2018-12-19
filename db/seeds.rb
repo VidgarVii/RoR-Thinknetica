@@ -25,6 +25,8 @@ questions = Question.create!([
   {body: 'Что вернет следующие выражание? 57 / 0', test: tests[0]},
   {body: 'Что такое TypeScript?', test: tests[1]},
   {body: 'А можно пупок завязать обратно, если он развяжется?', test: tests[2]},
+  {body: 'Что делают альпинисты, когда у них заканчивается туалетная бумага?', test: tests[2]},
+  {body: 'Почему топ-менеджеры есть, а топ-дворников нет?', test: tests[2]}
 ])
 answers = Answer.create!([
   {body: 'nil', question: questions[0]},
@@ -35,7 +37,14 @@ answers = Answer.create!([
   {body: 'Препроцессор JavaScript', question: questions[1]},
   {body: 'Да, морским улом', question: questions[2]},
   {body: 'Нет', question: questions[2]},
-  {body: 'Он не развяжется', question: questions[2], correct: true}
+  {body: 'Он не развяжется', question: questions[2], correct: true},
+  {body: 'Настоящие суровые альпинисты протираются снегом и камнями. А фикалии забирают с собой.', question: questions[3], correct: true},
+  {body: 'Пару капсул лоперамида и в туалет больше не ходим', question: questions[3]},
+  {body: 'Значит пора спускаться вниз', question: questions[3]},
+  {body: 'Все альпинисты носят памперсы', question: questions[3]},
+  {body: 'Не придумали', question: questions[4]},
+  {body: 'Такая профессия есть. Top cleaner manager', question: questions[4]},
+  {body: 'Дворник уже звучит гордо', question: questions[4]}
 ])
 
 Result.create!([
