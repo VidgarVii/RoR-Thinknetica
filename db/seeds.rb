@@ -17,9 +17,9 @@ categories = Category.create!([
   {title: 'other'}
 ])
 tests = Test.create!([
-  {title: 'Ruby', level: 1, category: categories[0], user: users[0]},
-  {title: 'TypeScript', level: 1, category: categories[0], user: users[0]},
-  {title: 'IQ', level: 0, category: categories[1], user: users[0]}
+  {title: 'Ruby', level: 1, category: categories[0], authored_tests: users[0]},
+  {title: 'TypeScript', level: 1, category: categories[0], authored_tests: users[0]},
+  {title: 'IQ', level: 0, category: categories[1], authored_tests: users[0]}
 ])
 questions = Question.create!([
   {body: 'Что вернет следующие выражание? 57 / 0', test: tests[0]},
@@ -29,13 +29,13 @@ questions = Question.create!([
 answers = Answer.create!([
   {body: 'nil', question: questions[0]},
   {body: '0', question: questions[0]},
-  {body: 'ZeroDivisionError (divided by 0)', question: questions[0]},
-  {body: 'Надстройка над JavaScript', question: questions[1]},
+  {body: 'ZeroDivisionError (divided by 0)', question: questions[0], correct: true},
+  {body: 'Надстройка над JavaScript', question: questions[1], correct: true},
   {body: 'Самостоятельный язык программирования', question: questions[1]},
   {body: 'Препроцессор JavaScript', question: questions[1]},
   {body: 'Да, морским улом', question: questions[2]},
   {body: 'Нет', question: questions[2]},
-  {body: 'Он не развяжется', question: questions[2]}
+  {body: 'Он не развяжется', question: questions[2], correct: true}
 ])
 
 Result.create!([
