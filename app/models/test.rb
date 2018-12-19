@@ -5,7 +5,9 @@ class Test < ApplicationRecord
   belongs_to :category
   belongs_to :authored_tests, class_name: 'User', foreign_key: 'user_id'
   validates :title, presence: true,
-                    uniqueness: { scope: :level, message: :uniq_title_with_level }
+                    uniqueness: { only_integer: true, 
+                                  scope: :level, 
+                                  message: :uniq_title_with_level }
   validates :level, numericality: { greater_than_or_equal_to: 0 }
 
   scope :easy, -> { where(level: 0..1) }
@@ -16,6 +18,9 @@ class Test < ApplicationRecord
     joins(:category)
       .where(categories: {title: category})
       .order(title: :desc)
-      .pluck(:title)
     }
+
+    def self.all_with_category_array(category)
+      all_with_category(category).pluck(:title)
+    end
 end
