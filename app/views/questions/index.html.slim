@@ -1,8 +1,7 @@
 h2 = @test.title
 ul
-  - @questions.each_with_index do |question, index|
+  - @questions.each do |question|
     li
-      a href="/tests/#{params[:test_id]}/questions/#{index}" = question.body
+      = link_to question.body, [@test, question]
 
-
-= link_to 'Новый вопрос', new_test_question_path
+= link_to 'Новый вопрос', new_test_question_path(@test)

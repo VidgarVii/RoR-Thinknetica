@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = @test.questions[params[:id].to_i]
+    @question = Question.find(params[:id])
   end
 
   def new
@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @test.questions[params[:id].to_i].destroy
+   Question.find(params[:id]).destroy
     redirect_to test_questions_path
   end
 
