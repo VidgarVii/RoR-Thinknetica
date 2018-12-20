@@ -1,8 +1,5 @@
 h3 =@question.body
 
-ul
-  - @question
-
-= link_to 'Назад', test_questions_path
+= link_to 'Назад', test_questions_path(@question.test.id)
 br
-= link_to 'Удалить', test_question_path, role: "button", method: :delete
+= link_to 'Удалить', question_path(@question), role: "button", method: :delete
