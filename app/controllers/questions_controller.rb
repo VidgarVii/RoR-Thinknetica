@@ -43,6 +43,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_quest_not_found
-    render plain: 'Запрос не был найден'
+    render plain: 'Ресурс не был найден'
   end
 end
