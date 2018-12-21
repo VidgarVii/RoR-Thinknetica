@@ -1,6 +1,9 @@
 ---
 ru:
-  scool: Thinknetica
+  direction:
+    back: Назад
+    forward: Вперед
+  school: Thinknetica
   activerecord:
     models:
       question:

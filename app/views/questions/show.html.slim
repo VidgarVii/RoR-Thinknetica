@@ -1,6 +1,6 @@
 h3 = @question.body
 
-= link_to 'Назад', test_path(@question.test.id)
+= link_to I18n.t('direction.back'), test_path(@question.test.id)
 br
 = link_to 'Изменить', edit_question_path(@question)
 br
