@@ -1,6 +1,11 @@
 // Place all the styles related to the Tests controller here.
 // They will automatically be included in application.sass.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors'
+
 .tests
+  margin: auto
+  tr:nth-child(2n)
+    background-color: $tr_2n
   &__count
     text-align: right
