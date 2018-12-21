@@ -10,3 +10,5 @@ table.tests
       tr
         td.tests__name = link_to test.title, test_path(test)
         td.tests__count = test.questions.size
+
+= link_to t('actions.creates.test'), new_test_path

@@ -3,6 +3,8 @@ ul
   - @questions.each do |question|
     li = link_to question.body, question_path(question)
 
-= link_to I18n.t('actions.creates.question'), new_test_question_path(@test)
+= link_to t('actions.update.test'), edit_test_path
 br
-= link_to I18n.t('direction.back'), tests_path
+= link_to t('actions.creates.question'), new_test_question_path(@test)
+br
+= link_to t('direction.back'), tests_path

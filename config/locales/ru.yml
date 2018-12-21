@@ -3,7 +3,11 @@ ru:
   actions:
     edit: Изменить
     delete: Удалить
+    update:
+      test: Редактировать тест
+      question: Редактировать вопрос
     creates:
+      test: Создать новый тест
       question: Создать новый вопрос
   direction:
     back: Назад

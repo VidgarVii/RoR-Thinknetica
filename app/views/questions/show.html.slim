@@ -1,10 +1,10 @@
 h3 = @question.body
 
-= link_to I18n.t('direction.back'), test_path(@question.test.id)
+= link_to t('direction.back'), test_path(@question.test.id)
 br
-= link_to I18n.t('actions.edit'), edit_question_path(@question)
+= link_to t('actions.edit'), edit_question_path(@question)
 br
-= link_to I18n.t('actions.delete'), question_path(@question),
+= link_to t('actions.delete'), question_path(@question),
           role: "button",
           method: :delete,
           data: { confirm: 'Вы уверены?' }
