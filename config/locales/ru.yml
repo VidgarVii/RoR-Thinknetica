@@ -2,6 +2,9 @@
 ru:
   scool: Thinknetica
   activerecord:
+    attributes:
+      question:
+        body: Название
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
