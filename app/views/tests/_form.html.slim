@@ -1,0 +1,6 @@
+= form_with model: @test, local: true, class: 'question' do |form|
+  = render 'shared/form_errors', resource: @test
+  = form.label :title
+  = form.text_field :title
+  = form.collection_select :category_id, Category.all, :id, :title, promt: true
+  = form.submit
