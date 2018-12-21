@@ -1,0 +1,12 @@
+h1 Тесты
+
+table.tests
+  thead
+    tr
+      th Названия тестов
+      th Кол-во вопросов
+  tbody
+    - @tests.each do |test|
+      tr
+        td.tests__name = link_to test.title, test_path(test)
+        td.tests__count = test.questions.size
