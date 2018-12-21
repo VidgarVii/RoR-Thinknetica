@@ -1,5 +1,9 @@
+h3 = question_header(@question)
+
 = form_with model: [@test, @question], local: true, class: 'question' do |form|
   = render 'shared/form_errors', resource: @question
   = form.label :body, 'Вопрос'
   = form.text_area :body
   = form.submit
+
+  - console
