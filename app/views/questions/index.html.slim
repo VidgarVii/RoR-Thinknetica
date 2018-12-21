@@ -1,0 +1,7 @@
+h2 = @test.title
+ul
+  - @questions.each do |question|
+    li
+      = link_to question.body, question_path(question)
+
+= link_to 'Новый вопрос', new_test_question_path(@test)
