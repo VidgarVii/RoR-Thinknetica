@@ -1,6 +1,6 @@
 h3 = test_header(@test)
 
-= form_with model: @test, local: true, class: 'question' do |form|
+= form_with model: @test, local: true, class: 'action' do |form|
   = render 'shared/form_errors', resource: @test
   = form.label :title
   = form.text_field :title
