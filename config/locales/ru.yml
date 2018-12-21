@@ -2,6 +2,10 @@
 ru:
   scool: Thinknetica
   activerecord:
+    models:
+      question:
+        one: Вопрос
+        other: Вопросы
     attributes:
       question:
         body: Название
