@@ -1,5 +1,10 @@
 ---
 ru:
+  actions:
+    edit: Изменить
+    delete: Удалить
+    creates:
+      question: Создать новый вопрос
   direction:
     back: Назад
     forward: Вперед
