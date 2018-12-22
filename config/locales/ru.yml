@@ -1,7 +1,26 @@
 ---
 ru:
-  scool: Thinknetica
+  actions:
+    edit: Изменить
+    delete: Удалить
+    update:
+      test: Редактировать тест
+      question: Редактировать вопрос
+    creates:
+      test: Создать новый тест
+      question: Создать новый вопрос
+  direction:
+    back: Назад
+    forward: Вперед
+  school: Thinknetica
   activerecord:
+    models:
+      question:
+        one: Вопрос
+        other: Вопросы
+    attributes:
+      question:
+        body: Название
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'

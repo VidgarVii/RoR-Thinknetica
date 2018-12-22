@@ -1,9 +1,20 @@
-form.question
+@import 'colors'
+
+form.action
   display: flex
   justify-content: center
   flex-direction: column
-  input, textarea, label
+  text-align: center
+  input, textarea, label, select
     margin: 20px auto
   textarea
     height: 150px
     width: 200px
+  select
+    width: 150px
+  .form_errors
+    background-color: $errors
+    width: 400px
+    margin: 10px auto
+    ol
+      width: 80%

@@ -1,5 +1,7 @@
-form.question action='/tests/#{params[:test_id]}/questions' method='post'
-  input name='authenticity_token' value="#{form_authenticity_token}" type='hidden'
-  label for='question' Вопрос
-  textarea#question name='question[body]'
-  input type='submit'
+h3 = question_header(@question)
+
+= form_with model: [@test, @question], local: true, class: 'action' do |form|
+  = render 'shared/form_errors', resource: @question
+  = form.label :body, 'Вопрос'
+  = form.text_area :body
+  = form.submit

@@ -1,0 +1,6 @@
+- if resource.errors.present?
+    .form_errors
+      h4 Ошибка
+      ol
+        - resource.errors.full_messages.each do |msg|
+          li = msg
