@@ -15,7 +15,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    @test.authored_tests = User.first #Временная заглушка
+    @test.author = User.first #Временная заглушка
 
     if @test.save
       redirect_to tests_path

@@ -26,7 +26,8 @@ questions = Question.create!([
   {body: 'Что такое TypeScript?', test: tests[1]},
   {body: 'А можно пупок завязать обратно, если он развяжется?', test: tests[2]},
   {body: 'Что делают альпинисты, когда у них заканчивается туалетная бумага?', test: tests[2]},
-  {body: 'Почему топ-менеджеры есть, а топ-дворников нет?', test: tests[2]}
+  {body: 'Почему топ-менеджеры есть, а топ-дворников нет?', test: tests[2]},
+  {body: 'Почему литр апельсинового сока стоит дешевле килограмма апельсинов?', test: tests[2]},
 ])
 answers = Answer.create!([
   {body: 'nil', question: questions[0]},
@@ -43,8 +44,11 @@ answers = Answer.create!([
   {body: 'Значит пора спускаться вниз', question: questions[3]},
   {body: 'Все альпинисты носят памперсы', question: questions[3]},
   {body: 'Не придумали', question: questions[4]},
-  {body: 'Такая профессия есть. Top cleaner manager', question: questions[4]},
-  {body: 'Дворник уже звучит гордо', question: questions[4]}
+  {body: 'Такая профессия есть. Top cleaner manager', question: questions[4], correct: true},
+  {body: 'Дворник уже звучит гордо', question: questions[4]},
+  {body: 'Концентрат(не более 30%). Либо при создании данного сока ни один апельсин не пострадал.', question: questions[5], correct: true},
+  {body: 'Регулирование цен', question: questions[5]},
+  {body: 'Сок стоит дороже', question: questions[5]}
 ])
 
 Result.create!([

@@ -3,7 +3,7 @@ class Test < ApplicationRecord
   has_many :results
   has_many :users, through: :results
   belongs_to :category
-  belongs_to :authored_tests, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   validates :title, presence: true,
                     uniqueness: { scope: :level, 
                                   message: :uniq_title_with_level }
