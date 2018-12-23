@@ -7,3 +7,8 @@ br
 = link_to t('actions.creates.question'), new_test_question_path(@test)
 br
 = link_to t('direction.back'), tests_path
+br
+= link_to t('actions.delete'), test_path(@test),
+          method: :delete,
+          role: "button",
+          data: { confirm: 'Вы уверены?' }
