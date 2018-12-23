@@ -1,6 +1,6 @@
 h2 = @test.title
 ul
-  = render(partial: "shared/question", collection: @questions) || 'У матросов нет вопросов'
+  = render(@questions) || 'У матросов нет вопросов'
 
 = link_to t('actions.update.test'), edit_test_path
 br
