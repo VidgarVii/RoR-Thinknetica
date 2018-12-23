@@ -1,4 +1,4 @@
-h3 = question_header(@question)
+h3 = header_form(@question, 'question')
 
 = form_with model: [@test, @question], local: true, class: 'action' do |form|
   = render 'shared/form_errors', resource: @question
