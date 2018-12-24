@@ -17,9 +17,9 @@ categories = Category.create!([
   {title: 'other'}
 ])
 tests = Test.create!([
-  {title: 'Ruby', level: 1, category: categories[0], authored_tests: users[0]},
-  {title: 'TypeScript', level: 1, category: categories[0], authored_tests: users[0]},
-  {title: 'IQ', level: 0, category: categories[1], authored_tests: users[0]}
+  {title: 'Ruby', level: 1, category: categories[0], author: users[0]},
+  {title: 'TypeScript', level: 1, category: categories[0], author: users[0]},
+  {title: 'IQ', level: 0, category: categories[1], author: users[0]}
 ])
 questions = Question.create!([
   {body: 'Что вернет следующие выражание? 57 / 0', test: tests[0]},
@@ -49,11 +49,4 @@ answers = Answer.create!([
   {body: 'Концентрат(не более 30%). Либо при создании данного сока ни один апельсин не пострадал.', question: questions[5], correct: true},
   {body: 'Регулирование цен', question: questions[5]},
   {body: 'Сок стоит дороже', question: questions[5]}
-])
-
-Result.create!([
-  {user: users[1], test: tests[0]},
-  {user: users[1], test: tests[1], status: true},
-  {user: users[1], test: tests[2]},
-  {user: users[2], test: tests[2]},
 ])
