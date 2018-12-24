@@ -18,8 +18,7 @@ class TestPassage < ApplicationRecord
   private
 
   def correct_answers?(answer_ids)
-    count_answers = current_answers.size
-    count_answers == current_answers.where(id: answer_ids).size && count_answers == answer_ids.size
+    current_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def current_answers
