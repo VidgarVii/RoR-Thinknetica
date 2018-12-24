@@ -4,7 +4,6 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-
   end
 
   def update
