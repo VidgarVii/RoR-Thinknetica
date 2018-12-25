@@ -1,0 +1,7 @@
+h2 Результат теста
+
+p.center = result_test(@test_passage.correct_questions, @test_passage.test.questions.size)
+= link_to 'Список всех тестов', tests_path
+.history_test_passages
+  h4 Последние пройденные тесты
+  = render 'history'

@@ -1,6 +1,9 @@
 h1
   = @test_passage.test.title
   span  Тест
+.description
+  span #{@test_passage.test.question_ids.index(@test_passage.question_id)+1} \ #{@test_passage.test.questions.size}
+
 hr
 h2 = @test_passage.question.body
 = form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|

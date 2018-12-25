@@ -1,0 +1,3 @@
+ul
+  - @test_passage.user.tests.reverse[0..5].each_with_index do |test, index|
+    li = link_to test.title, result_test_passage_path(@test_passage.user.test_passages[index])
