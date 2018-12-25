@@ -2,10 +2,10 @@ h1
   = @test_passage.test.title
   span  Тест
 hr
-h2 = @test_passage.current_question.body
+h2 = @test_passage.question.body
 = form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|
   = form.collection_check_boxes :answer_ids,
-          @test_passage.current_question.answers,
+          @test_passage.question.answers,
           :id, :body,
           include_hidden: false do |b|
     = b.check_box id: "answer_ids_#{b.object.id}"
