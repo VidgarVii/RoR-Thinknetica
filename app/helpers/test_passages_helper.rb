@@ -1,10 +1,10 @@
 module TestPassagesHelper
 
-  def result_test(result)
-    if result >= 85
-      content_tag(:span, "Тест пройден. Результат #{result}% правильных ответов", class: 'success')
+  def result_test(test_passage)
+    if test_passage.success?
+      content_tag(:span, "Тест пройден. Результат #{test_passage.result}% правильных ответов", class: 'success')
     else
-      content_tag(:span, "Тест не пройден. Результат #{result}% правильных ответов.", class: 'fail')
+      content_tag(:span, "Тест не пройден. Результат #{test_passage.result}% правильных ответов.", class: 'fail')
     end
   end
 end

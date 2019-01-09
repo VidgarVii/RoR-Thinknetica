@@ -15,21 +15,25 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def result_passed_test
-    correct_questions*100/test.questions.size if completed?
+  def success?
+    result >= 85
+  end
+
+  def result
+    correct_questions * 100.0 / test.questions.size if completed?
   end
 
   def current_question_number
-    test.questions.size - do_somthink.size
+    test.questions.order(:id).where('id < ?', current_question.id).size + 1
   end
 
   private
 
   def correct_answers?(answer_ids)
-    current_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids.present?
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids.present?
   end
 
-  def current_answers
+  def correct_answers
     current_question.answers.correct
   end
 
@@ -38,10 +42,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    do_somthink.first
-  end
-
-  def do_somthink
-    test.questions.order(:id).where('id > ?', current_question.id)
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end
