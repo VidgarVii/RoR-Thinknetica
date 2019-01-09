@@ -53,7 +53,7 @@ class TestsController < ApplicationController
 
   def set_user
     # @user = User.find(params[:id])
-    @user = User.find(2) #Временная заглушка
+    @user = User.first #Временная заглушка
   end
 
   def set_test
