@@ -1,0 +1,6 @@
+header
+  h1 = link_to TestGuru, root_path
+  .authenticate
+    - if current_user
+      = content_tag :span, "Добро пожаловать, #{current_user.name} "
+      = link_to t('exit'), signout_path

@@ -10,4 +10,10 @@ module ApplicationHelper
   def header_form(object, name)
     object.new_record? ? t("actions.creates.#{name}") : t("actions.update.#{name}")
   end
+
+  def flash_tag(status)
+    if flash[status]
+      content_tag :p, flash[status], class: "flash #{status}"
+    end
+  end
 end

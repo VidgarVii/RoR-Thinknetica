@@ -1,4 +1,5 @@
 = form_with model: @user, local: true, class: 'login' do |form|
+  = render 'shared/form_errors', resource: @user
   = form.label :name
   = form.text_field :name
   = form.label :email
