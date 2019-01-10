@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to tests_path
     else
-      render :new
+      redirect_to signin_path, alert: t('auth_error')
     end
   end
 end
