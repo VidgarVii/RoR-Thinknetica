@@ -1,0 +1,8 @@
+= form_with url:sessions_path, local: true, class: 'authenticate' do |form|
+  - if flash[:alert]
+    = content_tag :p, flash[:alert], class: 'flash alert'
+  = form.label :email
+  = form.text_field :email
+  = form.label :password
+  = form.password_field :password
+  = form.submit t('enter')
