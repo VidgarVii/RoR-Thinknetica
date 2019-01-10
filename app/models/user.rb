@@ -1,8 +1,12 @@
 class User < ApplicationRecord
+
+  include Auth
+
   has_many :authored_tests, class_name: 'Test'
   has_many :test_passages, dependent: :delete_all
   has_many :tests, through: :test_passages
-  validates :name, :email, :password, presence: true
+
+  # has_secure_password
 
   def current_test_with_level(level)
     tests.where(level: level)
