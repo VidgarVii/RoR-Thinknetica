@@ -1,4 +1,16 @@
 h2 = @test.title
+
+table.description
+  tbody
+    tr
+      td Категория
+      td = @test.category.title
+    tr
+      td Уровень
+      td = @test.level
+    tr
+      td Кол-во вопросов
+      td = @test.questions.size
 ul
   = render(@questions) || 'У матросов нет вопросов'
 
@@ -12,3 +24,5 @@ br
           method: :delete,
           role: "button",
           data: { confirm: 'Вы уверены?' }
+
+= button_to 'Старт', start_test_path(@test)
