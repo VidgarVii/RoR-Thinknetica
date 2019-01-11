@@ -11,9 +11,9 @@ module ApplicationHelper
     object.new_record? ? t("actions.creates.#{name}") : t("actions.update.#{name}")
   end
 
-  def flash_tag(status)
-    if flash[status]
-      content_tag :p, flash[status], class: "flash #{status}"
-    end
+  def flash_msg
+    flash.map do |name, msg|
+      content_tag(:div, msg, class: "flash #{name}")
+    end.join.html_safe
   end
 end

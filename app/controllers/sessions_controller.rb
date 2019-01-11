@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
+    @current_user_id = User.find_by(email: params[:email])
 
     if @user&.authenticate(params[:password])
-      session[:user_id] = @user.id
+      session[:current_user_id] = @current_user_id.id
       redirect_to tests_path
     else
       flash[:alert] = t('auth_error')
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    session.delete(:current_user_id)
     redirect_to root_path
   end
 end
