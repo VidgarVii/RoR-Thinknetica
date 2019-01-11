@@ -6,12 +6,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
+      cookies[:fullpath] = request.fullpath
       redirect_to signin_path, alert: t('authenticate')
     end
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    @_current_user ||= User.find_by(id: session[:current_user_id]) if session[:current_user_id]
   end
 
   def logged_in?
