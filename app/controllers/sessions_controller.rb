@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    _current_user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email])
 
-    if _current_user&.authenticate(params[:password])
-      session[:current_user_id] = _current_user.id
-      redirect_to cookies[:fullpath] || root_path
+    if user&.authenticate(params[:password])
+      session[:current_user_id] = user.id
+      redirect_to cookies.delete(:fullpath) || root_path
     else
       flash[:alert] = t('auth_error')
       render :new
