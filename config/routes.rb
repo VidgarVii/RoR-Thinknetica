@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
+
   root 'tests#index'
 
-  get :signup, to: 'users#new'
-  get :signin, to: 'sessions#new'
-  delete :signout, to: 'sessions#destroy'
-
-  resources :users, only: :create
-  resources :sessions, only: :create
+  devise_for :users, path: :gurus
 
   resources :tests do
     post :start, on: :member
