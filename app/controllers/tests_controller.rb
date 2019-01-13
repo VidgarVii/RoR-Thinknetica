@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_test, only: %i[start show edit update destroy]
-  before_action :set_user, only: :start
 
   def index
     @tests = Test.all
@@ -41,19 +41,14 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
 
   def test_params
     params.require(:test).permit(:title, :category_id)
-  end
-
-  def set_user
-    # @user = User.find(params[:id])
-    @user = User.first #Временная заглушка
   end
 
   def set_test

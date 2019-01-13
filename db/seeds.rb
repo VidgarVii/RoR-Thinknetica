@@ -9,7 +9,7 @@
 users = User.create!([
   {name: 'Admin', email: 'admin@admin.ru', password: '123'},
   {name: 'Pasha', email: 'a@a.ru', password: '123'},
-  {name: 'Olya', email: 'a@a.ru', password: '123'}
+  {name: 'Olya', email: 'o@o.ru', password: '123'}
 ])
 categories = Category.create!([
   {title: 'programming'},

@@ -1,0 +1,8 @@
+= form_with url:sessions_path, local: true, class: 'login' do |form|
+  = form.label :email
+  = form.text_field :email
+  = form.label :password
+  = form.password_field :password
+  = form.submit t('enter')
+
+  = link_to t('h1.signup'), signup_path
