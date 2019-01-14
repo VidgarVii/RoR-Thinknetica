@@ -12,15 +12,15 @@ table.description
       td Кол-во вопросов
       td = @test.questions.size
 ul
-  = render(@questions) || 'У матросов нет вопросов'
+  = render partial: 'questions/question', collection: @questions || 'У матросов нет вопросов'
 
-= link_to t('actions.update.test'), edit_test_path
+= link_to t('actions.update.test'), edit_admin_test_path
 br
 = link_to t('actions.creates.question'), new_test_question_path(@test)
 br
-= link_to t('direction.back'), tests_path
+= link_to t('direction.back'), admin_tests_path
 br
-= link_to t('actions.delete'), test_path(@test),
+= link_to t('actions.delete'), admin_test_path(@test),
           method: :delete,
           role: "button",
           data: { confirm: 'Вы уверены?' }

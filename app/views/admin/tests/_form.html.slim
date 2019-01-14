@@ -1,6 +1,6 @@
 h3 = header_form(@test, 'test')
 
-= form_with model: @test, local: true, class: 'action' do |form|
+= form_with model: [:admin, @test], local: true, class: 'action' do |form|
   = render 'shared/form_errors', resource: @test
   = form.label :title
   = form.text_field :title
