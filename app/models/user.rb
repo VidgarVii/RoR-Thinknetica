@@ -14,6 +14,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true,
                     format: /.+@.+\..+/i
 
+  def admin?
+    is_a?(Admin)
+  end
+
   def current_test_with_level(level)
     tests.where(level: level)
   end
