@@ -6,6 +6,8 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       ## Database authenticatable
       # t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :first_name
+      t.string :last_name
 
       ## Recoverable
       t.string   :reset_password_token
@@ -37,7 +39,8 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # t.timestamps null: false
     end
 
-    remove_column         :users, :password_digest
+    remove_column         :users, :password_digest, :string
+    remove_column         :users, :name, :string
     change_column_default :users, :email, ''
 
     add_index :users, :email,                unique: true
@@ -57,6 +60,8 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
                   :confirmation_sent_at, :unconfirmed_email
 
     add_column            :users, :password_digest, :string
+    remove_column         :users, :first_name, :string
+    remove_column         :users, :last_name, :string
     remove_index          :users, :email
     change_column_default :users, :email, nil
   end

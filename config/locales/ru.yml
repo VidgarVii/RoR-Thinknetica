@@ -1,6 +1,6 @@
 ---
 ru:
-  welcome: 'Добро пожаловать %{name}'
+  welcome: 'Привет %{name}!'
   signin: Авторизация
   signup: Регистрация
   exit: Выход
