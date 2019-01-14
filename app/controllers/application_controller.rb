@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(user)
-    flash[:notice] = "Привет #{user.first_name}"
     user.admin? ? admin_tests_path : tests_path
   end
 
