@@ -1,5 +1,5 @@
 tr
-  td.tests__name = link_to test.title, test_path(test)
+  td.tests__name.strong = test.title
   td = test.category.title
   td.tests__count = test.questions.size
   td = button_to 'Старт', start_test_path(test)

@@ -1,0 +1,16 @@
+h2 Вопрос
+
+p.strong.center = @question.body
+ol
+  = render @question.answers
+
+= link_to t('actions.creates.answer'), new_admin_question_answer_path(@question)
+br
+= link_to t('actions.edit'), edit_admin_question_path(@question)
+br
+= link_to t('actions.delete'), admin_question_path(@question),
+          role: "button",
+          method: :delete,
+          data: { confirm: 'Вы уверены?' }
+br
+= link_to t('direction.back'), admin_test_path(@question.test.id)

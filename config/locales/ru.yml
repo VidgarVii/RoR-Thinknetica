@@ -1,5 +1,6 @@
 ---
 ru:
+  answer: Ответ
   welcome: 'Привет %{name}!'
   signin: Авторизация
   signup: Регистрация
@@ -16,6 +17,7 @@ ru:
     creates:
       test: Создать новый тест
       question: Создать новый вопрос
+      answer: Создать ответ
   direction:
     back: Назад
     forward: Вперед

@@ -19,7 +19,7 @@ class Admin::TestsController < ApplicationController
     @test.author = User.first #Временная заглушка
 
     if @test.save
-      redirect_to tests_path
+      redirect_to admin_tests_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to test_path(@test)
+      redirect_to admin_test_path(@test)
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Admin::TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path
+    redirect_to admin_tests_path
   end
 
   def start
@@ -48,7 +48,7 @@ class Admin::TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :category_id)
+    params.require(:test).permit(:title, :category_id, :level)
   end
 
   def set_test

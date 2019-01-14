@@ -12,11 +12,11 @@ table.description
       td Кол-во вопросов
       td = @test.questions.size
 ul
-  = render partial: 'questions/question', collection: @questions || 'У матросов нет вопросов'
+  = render @questions
 
 = link_to t('actions.update.test'), edit_admin_test_path
 br
-= link_to t('actions.creates.question'), new_test_question_path(@test)
+= link_to t('actions.creates.question'), new_admin_test_question_path(@test)
 br
 = link_to t('direction.back'), admin_tests_path
 br
