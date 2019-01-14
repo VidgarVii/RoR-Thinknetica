@@ -8,6 +8,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       t.string :encrypted_password, null: false, default: ""
       t.string :first_name
       t.string :last_name
+      t.string :type, null: false, default: 'User'
 
       ## Recoverable
       t.string   :reset_password_token
@@ -43,6 +44,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
     remove_column         :users, :name, :string
     change_column_default :users, :email, ''
 
+    add_index :users, :type
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
@@ -54,14 +56,22 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
     # model already existed. Please edit below which fields you would like to remove in this migration.
     # raise ActiveRecord::IrreversibleMigration
 
-    remove_column :users, :encrypted_password, :reset_password_token, :reset_password_sent_at,
-                  :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at,
-                  :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at,
-                  :confirmation_sent_at, :unconfirmed_email
-
-    add_column            :users, :password_digest, :string
+    remove_column :users, :encrypted_password, :string
+    remove_column :users, :reset_password_token, :string
+    remove_column :users, :reset_password_sent_at, :datetime
+    remove_column :users, :remember_created_at, :datetime
+    remove_column :users, :sign_in_count, :integer
+    remove_column :users, :current_sign_in_at, :datetime
+    remove_column :users, :last_sign_in_at, :datetime
+    remove_column :users, :current_sign_in_ip, :inet
+    remove_column :users, :last_sign_in_ip, :inet
+    remove_column :users, :confirmation_token, :string
+    remove_column :users, :confirmed_at, :datetime
+    remove_column :users, :confirmation_sent_at, :datetime
+    remove_column :users, :unconfirmed_email, :string
     remove_column         :users, :first_name, :string
     remove_column         :users, :last_name, :string
+    add_column            :users, :password_digest, :string
     remove_index          :users, :email
     change_column_default :users, :email, nil
   end
