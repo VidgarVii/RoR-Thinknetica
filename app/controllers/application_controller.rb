@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def redirect_for_admin(user)
-    user.admin? ? redirect_to admin_test_path : tests_path
+  def after_sign_in_path_for(user)
+    user.admin? ? admin_tests_path : tests_path
   end
 
   def configure_permitted_parameters
