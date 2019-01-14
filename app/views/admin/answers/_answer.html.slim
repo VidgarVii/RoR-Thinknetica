@@ -1,1 +1,3 @@
-li = link_to answer.body, admin_answer_path(answer)
+li
+  = link_to answer.body, admin_answer_path(answer)
+  = correct_answer_tag(answer.correct)

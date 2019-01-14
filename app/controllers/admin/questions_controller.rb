@@ -3,7 +3,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :set_test, only: %i[create new]
   before_action :set_question, only: %i[show destroy edit update]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_not_found
 
   def show; end
 
@@ -25,7 +25,7 @@ class Admin::QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to question_path(@question)
+      redirect_to admin_question_path(@question)
     else
       render :edit
     end
