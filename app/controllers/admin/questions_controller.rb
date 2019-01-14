@@ -1,5 +1,5 @@
-class Admin::QuestionsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::QuestionsController < Admin::BaseController
+
   before_action :set_test, only: %i[create new]
   before_action :set_question, only: %i[show destroy edit update]
 
