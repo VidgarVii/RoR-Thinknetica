@@ -16,7 +16,7 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
-    @test.author = User.first #Временная заглушка
+    @test.author = current_user
 
     if @test.save
       redirect_to admin_tests_path
