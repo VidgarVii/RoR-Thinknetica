@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :gurus
 
-  resources :tests do
+  resources :tests, only: :index do
     post :start, on: :member
   end
 

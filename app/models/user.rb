@@ -11,9 +11,6 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :delete_all
   has_many :tests, through: :test_passages
 
-  validates :email, uniqueness: true,
-                    format: /.+@.+\..+/i
-
   def admin?
     is_a?(Admin)
   end
