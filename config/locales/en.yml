@@ -43,6 +43,7 @@ en:
   categories:
     humor: Humor
     programming: Programming
+    other: Other
   datetime:
     distance_in_words:
       half_a_minute: "half a minute"
@@ -86,7 +87,6 @@ en:
       hour:   "Hour"
       minute: "Minute"
       second: "Seconds"
-
     helpers:
       select:
         # Default value for :prompt => true in FormOptionsHelper
