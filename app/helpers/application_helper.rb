@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def header_form(object, name)
-    object.new_record? ? t("actions.creates.#{name}") : t("actions.update.#{name}")
+    object.new_record? ? t("actions.creates.#{name}") : t(name)
   end
 end

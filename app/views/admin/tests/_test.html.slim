@@ -1,5 +1,5 @@
 tr
   td.tests__name = link_to test.title, admin_test_path(test)
-  td = test.category.title
+  td = t("categories.#{test.category.title}")
   td.tests__count = test.questions.size
-  td = button_to 'Старт', start_test_path(test)
+  td = button_to t('start'), start_test_path(test)

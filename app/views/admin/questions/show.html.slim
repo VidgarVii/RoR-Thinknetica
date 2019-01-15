@@ -1,4 +1,4 @@
-h2 Вопрос
+h2 = t('question')
 
 p.strong.center = @question.body
 ol
@@ -11,6 +11,6 @@ br
 = link_to t('actions.delete'), admin_question_path(@question),
           role: "button",
           method: :delete,
-          data: { confirm: 'Вы уверены?' }
+          data: { confirm: t('actions.delete?', model: Question.model_name.human) }
 br
 = link_to t('direction.back'), admin_test_path(@question.test.id)

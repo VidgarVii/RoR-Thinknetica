@@ -3,13 +3,13 @@ h2 = @test.title
 table.description
   tbody
     tr
-      td Категория
-      td = @test.category.title
+      td = t('category')
+      td = t("categories.#{@test.category.title}")
     tr
-      td Уровень
+      td = t('level')
       td = @test.level
     tr
-      td Кол-во вопросов
+      td = t('count_quests')
       td = @test.questions.size
 ul
   = render @questions
@@ -23,6 +23,6 @@ br
 = link_to t('actions.delete'), admin_test_path(@test),
           method: :delete,
           role: "button",
-          data: { confirm: 'Вы уверены?' }
+          data: { confirm: t('actions.delete?', model: @test.model_name.human) }
 
 = button_to 'Старт', start_test_path(@test)

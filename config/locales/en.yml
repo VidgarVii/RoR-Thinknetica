@@ -1,33 +1,99 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  result_test_true: Test passed. Result %{count}% correct answers
+  result_test_false: Test failed. Result %{count}% correct answers
+  start: Run
+  result: Result test
+  answer: Answer
+  admin:
+    tests:
+      index:
+        header: Tests
+        category: Categories
+        names: Name tests
+        count_quests: Count questionsв
+  tests:
+    index:
+      header: Tests
+      category: Categories
+      names: Name tests
+      count_quests: Count questions
+  lesson_project: Training project in the Thinknetica
+  signin: Sign In
+  remember_password: Forgot your password?
+  confirmation_instructions: Didn't receive confirmation instructions?
+  unlock_instructions: Didn't receive unlock instructions?
+  sign_with: Sign in with %{resource}
+  repeat_send_instructions: Resend unlock instructions
+  repeat_current_password: (We need your current password to confirm your changes)
+  leave_blank: (leave blank if you don't want to change it)
+  cancel_account: Cancel my account
+  confirm_new_password: Confirm new password
+  send_password_instructions: Send me reset password instructions
+  new_password: New password
+  actions:
+    delete?: Are you sure you want to delete %{model}
+    update:
+      test: Edit test
+      question: Edit question
+      answer: Edit answer
+    creates:
+      test: Create new test
+      question: Create new question
+      answer: Create new answer
+  categories:
+    humor: Humor
+    programming: Programming
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "less than 1 second"
+        other: "less than %{count} seconds"
+      x_seconds:
+        one:   "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one:   "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one:   "1 day"
+        other: "%{count} days"
+      about_x_months:
+        one:   "about 1 month"
+        other: "about %{count} months"
+      x_months:
+        one:   "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one:   "about 1 year"
+        other: "about %{count} years"
+      over_x_years:
+        one:   "over 1 year"
+        other: "over %{count} years"
+      almost_x_years:
+        one:   "almost 1 year"
+        other: "almost %{count} years"
+    prompts:
+      year:   "Year"
+      month:  "Month"
+      day:    "Day"
+      hour:   "Hour"
+      minute: "Minute"
+      second: "Seconds"
+
+    helpers:
+      select:
+        # Default value for :prompt => true in FormOptionsHelper
+        prompt: "Please select"
+
+      # Default translation keys for submit and button FormHelper
+      submit:
+        create: 'Create %{model}'
+        update: 'Update %{model}'
+        submit: 'Save %{model}'

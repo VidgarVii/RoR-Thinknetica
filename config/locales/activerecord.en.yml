@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    models:
+      category:
+        one: Category
+        other: Categories
+      answer:
+        one: Answer
+        other: Answers
+      test:
+        one: Test
+        other: Tests
+      question:
+        one: Question
+        other: Questions
+    attributes:
+      question:
+        body: Body question
+      answer:
+        correct: Correct answer?
+        body: Body answer
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        max_answers: 'У одного Вопроса может быть от 1-го до 4-х ответов'
+        uniq_title_with_level: 'Может существовать только один Тест с данным названием и уровнем'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'

@@ -10,6 +10,6 @@ br
 = link_to t('actions.delete'), admin_answer_path(@answer),
         role: "button",
         method: :delete,
-        data: { confirm: 'Вы уверены?' }
+        data: { confirm: t('actions.delete?', model: @answer.model_name.human) }
 br
 = link_to t('direction.back'), admin_question_path(@answer.question)

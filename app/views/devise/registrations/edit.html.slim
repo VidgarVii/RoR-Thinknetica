@@ -1,5 +1,5 @@
 h2
-  | Edit
+  = t('.header')
   = resource_name.to_s.humanize
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
@@ -21,8 +21,7 @@ h2
       = resource.unconfirmed_email
   .field
     = f.label :password
-    i
-      | (leave blank if you don't want to change it)
+    i = t('leave_blank')
     br
     = f.password_field :password, autocomplete: "new-password"
     - if @minimum_password_length
@@ -36,15 +35,11 @@ h2
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .field
     = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
+    i = t('repeat_current_password')
     br
     = f.password_field :current_password, autocomplete: "current-password"
   .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy?
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+    = f.submit
+h3 = t('cancel_account')
+= button_to t('cancel_account'), registration_path(resource_name), data: { confirm: t('actions.delete?', model: resource.class.model_name.human) }, method: :delete
+= link_to t('direction.back'), :back

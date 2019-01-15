@@ -1,0 +1,41 @@
+ru:
+  activerecord:
+    models:
+      category:
+        one: Категория
+        other: Категории
+      answer:
+        one: Ответ
+        other: Ответы
+      user: Пользователь
+      test:
+        one: Тест
+        other: Тесты
+      question:
+        one: Вопрос
+        other: Вопросы
+    attributes:
+      test:
+        title: Описание теста
+        level: Уровень
+      user:
+        first_name: Имя
+        last_name: Фамилия
+        email: Почта
+        password: Пароль
+        remember_me: Запомнить
+        password_confirmation: Повторить пароль
+        current_password: Текущий пароль
+      question:
+        body: Вопрос
+      answer:
+        correct: Верный ответ?
+        body: Ответ
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        max_answers: 'У одного Вопроса может быть от 1-го до 4-х ответов'
+        uniq_title_with_level: 'Может существовать только один Тест с данным названием и уровнем'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'

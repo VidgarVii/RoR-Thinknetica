@@ -1,10 +1,10 @@
-h2 Тесты
+h2 = t('.header')
 
 table.tests
   thead
     tr
-      th Названия тестов
-      th Категория
-      th Кол-во вопросов
+      th = t('.names')
+      th = t('.category')
+      th = t('.count_quests')
   tbody
     = render @tests

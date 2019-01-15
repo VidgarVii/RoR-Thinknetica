@@ -1,5 +1,4 @@
-h2
-  = header_form(@answer, 'answer')
+h2 = header_form(@answer, 'answer')
 
 = form_with model: [:admin,  @question, @answer], local: true, class: 'action' do |form|
   = render 'shared/form_errors', resource: @answer

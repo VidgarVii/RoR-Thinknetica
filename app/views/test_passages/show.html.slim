@@ -1,6 +1,5 @@
 h2
   = @test_passage.test.title
-  span  Тест
 .description
   span #{@test_passage.current_question_number} \ #{@test_passage.test.questions.size}
 
@@ -14,4 +13,4 @@ h2 = @test_passage.current_question.body
     = b.check_box id: "answer_ids_#{b.object.id}"
     = b.label
     br
-  = form.submit 'Ответить'
+  = form.submit t('answer')
