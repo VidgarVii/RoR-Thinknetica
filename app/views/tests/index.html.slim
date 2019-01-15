@@ -1,10 +1,12 @@
-h2 = t('.header')
-
-table.tests
-  thead
-    tr
-      th = t('.names')
-      th = t('.category')
-      th = t('.count_quests')
-  tbody
-    = render @tests
+h1 = t('.header')
+.row
+  .col-12.col-md-8.offset-2
+    table.table.table-hover.table-striped
+      thead
+        tr.bg-primary
+          th = t('.names')
+          th = t('.category')
+          th = t('.count_quests')
+          th
+      tbody
+        = render @tests

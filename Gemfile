@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.0'
 gem "font-awesome-rails"
 gem 'rails-i18n', '~> 5.1'
+gem 'bootstrap', '~> 4.2.1'
+gem 'jquery-rails'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

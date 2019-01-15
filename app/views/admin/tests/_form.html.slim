@@ -1,10 +1,16 @@
-h3 = header_form(@test, 'test')
-
-= form_with model: [:admin, @test], local: true, class: 'action' do |form|
-  = render 'shared/form_errors', resource: @test
-  = form.label :title
-  = form.text_field :title
-  = form.collection_select :category_id, Category.all, :id, :translated_title, promt: true
-  = form.label :level
-  = form.number_field :level
-  = form.submit
+h1 = header_form(@test, 'test')
+.row
+  .col-12.col-md-8.offset-1
+    = form_with model: [:admin, @test], local: true, class: 'action' do |form|
+      .form-group.row
+        = render 'shared/form_errors', resource: @test
+      .form-group.row
+        = form.label :title, class: 'col-md-4 col-form-label'
+        = form.text_field :title, class: 'form-control col-md-4'
+      .form-group.row
+        = form.collection_select :category_id, Category.all, :id, :translated_title, promt: true
+      .form-group.row
+        = form.label :level, class: 'col-md-4 col-form-label'
+        = form.number_field :level, class: 'form-control col-md-4'
+      .form-group.row
+        = form.submit class: 'btn btn-primary'

@@ -1,9 +1,11 @@
 header
-  h1 = link_to TestGuru, root_path
-  .authenticate
-    - if user_signed_in?
-      = content_tag :span, current_user.first_name
-      = link_to t('exit'), destroy_user_session_path, method: :delete
-    - else
-      = link_to t('signin'), new_user_session_path
-      = link_to t('signup'), new_user_registration_path
+  nav.navbar.navbar-dark.bg-primary
+    = link_to TestGuru, root_path, class: 'navbar-brand'
+    .authenticate
+      - if user_signed_in?
+        = link_to 'Админка', admin_tests_path if current_user.admin?
+        = content_tag :span, current_user.first_name
+        = link_to t('exit'), destroy_user_session_path, method: :delete
+      - else
+        = link_to t('signin'), new_user_session_path
+        = link_to t('signup'), new_user_registration_path

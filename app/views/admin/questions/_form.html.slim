@@ -1,7 +1,12 @@
-h3 = header_form(@question, 'question')
+h1 = header_form(@question, 'question')
 
-= form_with model: [:admin, @test, @question], local: true, class: 'action' do |form|
-  = render 'shared/form_errors', resource: @question
-  = form.label :body
-  = form.text_area :body
-  = form.submit
+.row
+  .col-12.col-md-8.offset-1
+    = form_with model: [:admin, @test, @question], local: true, class: 'action' do |form|
+      .form-group.row
+        = render 'shared/form_errors', resource: @question
+      .form-group.row
+        = form.label :body, class: 'col-md-4 col-form-label'
+        = form.text_area :body, class: 'form-control col-md-8'
+      .form-group.row
+        = form.submit class: 'btn btn-primary'

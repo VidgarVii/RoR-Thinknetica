@@ -1,15 +1,15 @@
-h2 = @test.title
+h1 = @test.title
 
 table.description
   tbody
     tr
-      td = t('category')
+      th = t('category')
       td = t("categories.#{@test.category.title}")
     tr
-      td = t('level')
+      th = t('level')
       td = @test.level
     tr
-      td = t('count_quests')
+      th = t('count_quests')
       td = @test.questions.size
 ul
   = render @questions

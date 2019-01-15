@@ -1,44 +1,9 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import 'colors'
 @import "font-awesome-sprockets"
 @import "font-awesome"
-
-h1,h2,h3,h4,h5
-  text-align: center
-a
-  text-decoration: none
-.center
-  text-align: center
-form.login
-  display: grid
-  width: 400px
-  margin: auto
-  label, input
-    margin: 5px 0
-    width: 100%
-  a
-    text-align: center
-.field_with_errors
-  input
-    border: 1px solid red
-    box-shadow: 0 0 5px red
-.strong
-  font-weight: 600
-.green
-  color: green
-i.fa
-  margin-left: 5px
+@import "bootstrap"
+@import "header"
+@import "main"
+@import "footer"
+@import "test_passages"
+@import "tests"
