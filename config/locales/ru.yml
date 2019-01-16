@@ -10,7 +10,7 @@ ru:
 
   test_passages:
     gist:
-      success: Тест успешно создан
+      success: Тест успешно создан %{url_gist}
       failure: Во время сохранения gist произошла ошибка
     show:
       gist_create: Поделиться вопросом в Gist

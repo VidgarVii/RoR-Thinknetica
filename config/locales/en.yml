@@ -100,7 +100,7 @@ en:
 
   test_passages:
     gist:
-      success: The test was created successfully
+      success: The test was created successfully %{url_gist}
       failure: An error occurred while saving gist
     show:
       gist_create: Gist Question

@@ -37,7 +37,7 @@ gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
 
 # API
-gem 'faraday', '~> 0.15.4'
+gem "octokit", "~> 4.0"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
