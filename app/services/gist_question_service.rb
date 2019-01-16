@@ -1,7 +1,7 @@
 class GistQuestionService
 
-  def initialize(question, client: nil)
-    @client = client || GitHubClient.new
+  def initialize(question, client: setup_http_client)
+    @client = client
     @question = question
     @test = @question.test
   end
@@ -11,6 +11,10 @@ class GistQuestionService
   end
 
   private
+
+  def setup_http_client
+    Octokit::Client.new(access_token: ENV['TOKEN_GITHUB_GIST'])
+  end
 
   def gist_content
     content = [@question.body]
