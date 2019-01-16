@@ -1,4 +1,8 @@
-#document.addEventListener "turbolinks:load", ->
-#  $(".navbar-nav .nav-item").on "click", () ->
-#    $(".navbar-nav").find(".active").removeClass("active")
-#    $(this).addClass("active")
+document.addEventListener "turbolinks:load", ->
+  navlink = document.getElementsByClassName('nav-link')
+
+  log = (link) ->
+    if link.href == location.href
+      link.classList.add('active')
+
+  log link for link in navlink
