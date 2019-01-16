@@ -1,4 +1,7 @@
 en:
+  sevices:
+    gist:
+      description: A questions about %{title} from TestGuru
   result_test_true: Test passed. Result %{count}% correct answers
   result_test_false: Test failed. Result %{count}% correct answers
   start: Run

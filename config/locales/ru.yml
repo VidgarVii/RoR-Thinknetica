@@ -1,5 +1,8 @@
 ---
 ru:
+  sevices:
+    gist:
+      description: Вопрос %{title} от TestGuru
   category: Категория
   level: Уровень
   count_quests: Количество вопросов

@@ -3,7 +3,7 @@ header
     = link_to 'Admin Panel | TestGuru', root_path, class: 'navbar-brand'
     ul.navbar-nav.m-auto
       li.nav-item.active = link_to t('test'), admin_tests_path, class: 'nav-link'
-      li.nav-item = link_to 'Gists', admin_gists_path, class: 'nav-link'
+      li.nav-item.active = link_to 'Gists', admin_gists_path, class: 'nav-link'
     .authenticate
       - if user_signed_in?
         span = current_user.first_name

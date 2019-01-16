@@ -264,7 +264,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise (~> 4.0)
-  faraday (~> 0.15.4)
   font-awesome-rails
   font-awesome-sass
   jbuilder (~> 2.5)
