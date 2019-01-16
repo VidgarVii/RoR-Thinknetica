@@ -7,6 +7,14 @@ ru:
   result: Результат теста
   result_test_true: Тест пройден. Результат %{count}% правильных ответов
   result_test_false: Тест не пройден. Результат %{count}% правильных ответов
+
+  test_passages:
+    gist:
+      success: Тест успешно создан
+      failure: Во время сохранения gist произошла ошибка
+    show:
+      gist_create: Поделиться вопросом в Gist
+
   admin:
     tests:
       index:
@@ -14,12 +22,14 @@ ru:
         category: Категории
         names: Названия тестов
         count_quests: Кол-во вопросов
+
   tests:
     index:
       header: Тесты
       category: Категории
       names: Названия тестов
       count_quests: Кол-во вопросов
+
   lesson_project: Учебный проект в онлайн-школе Thinknetica
   answer: Ответ
   question: Вопрос

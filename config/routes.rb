@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
+    post :gist, on: :member
   end
 
   namespace :admin do

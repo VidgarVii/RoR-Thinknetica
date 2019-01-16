@@ -12,4 +12,6 @@ h2 = @test_passage.current_question.body
     = b.check_box id: "answer_ids_#{b.object.id}"
     = b.label
     br
+  = link_to t('.gist_create'), gist_test_passage_path(@test_passage), method: :post, role: 'button'
+  br
   = form.submit t('answer')

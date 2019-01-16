@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class GitHubClient
-  attr_reader :http_client
 
   ROOT_ENDPOINT = 'https://api.github.com'
   ACCESS_TOKEN = ENV['TOKEN_GITHUB_GIST']

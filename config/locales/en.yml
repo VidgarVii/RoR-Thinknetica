@@ -97,3 +97,10 @@ en:
         create: 'Create %{model}'
         update: 'Update %{model}'
         submit: 'Save %{model}'
+
+  test_passages:
+    gist:
+      success: The test was created successfully
+      failure: An error occurred while saving gist
+    show:
+      gist_create: Gist Question
