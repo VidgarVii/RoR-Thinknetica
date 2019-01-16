@@ -1,8 +1,8 @@
 document.addEventListener "turbolinks:load", ->
   navlinks = document.getElementsByClassName('nav-link')
 
-  add_active_to_link = (link) ->
+  addActiveToLink = (link) ->
     if link.href == location.href
       link.classList.add('active')
 
-  add_active_to_link(link) for link in navlinks
+  addActiveToLink(link) for link in navlinks
