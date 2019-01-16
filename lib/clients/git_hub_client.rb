@@ -3,8 +3,6 @@
 class GitHubClient
   attr_reader :http_client
 
-  ACCESS_TOKEN = ENV['TOKEN_GITHUB_GIST']
-
   def initialize
     @http_client = setup_http_client
   end
