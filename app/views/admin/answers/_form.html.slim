@@ -1,9 +1,15 @@
-h2 = header_form(@answer, 'answer')
+h1 = header_form(@answer, 'answer')
 
-= form_with model: [:admin,  @question, @answer], local: true, class: 'action' do |form|
-  = render 'shared/form_errors', resource: @answer
-  = form.label :body
-  = form.text_field :body, size: 50
-  = form.label :correct
-  = form.check_box :correct
-  = form.submit
+.row
+  .col-12.col-md-8.offset-1
+    = form_with model: [:admin,  @question, @answer], local: true, class: 'action' do |form|
+      .form-group.row
+        = render 'shared/form_errors', resource: @answer
+      .form-group.row
+        = form.label :body, class: 'col-md-4 col-form-label'
+        = form.text_area :body, size: 50, class: 'form-control col-md-8 col-10'
+      .form-group.row
+        = form.label :correct, class: 'col-md-4 col-form-label'
+        = form.check_box :correct, class: 'form-control col-md-4'
+      .form-group.row
+      = form.submit class: 'btn btn-primary'
