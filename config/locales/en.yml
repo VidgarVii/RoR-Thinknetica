@@ -5,6 +5,12 @@ en:
   result: Result test
   answer: Answer
   admin:
+    gists:
+      index:
+        user: Author
+        question: Question
+        url: Link
+
     tests:
       index:
         header: Tests

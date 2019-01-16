@@ -16,6 +16,12 @@ ru:
       gist_create: Поделиться вопросом в Gist
 
   admin:
+    gists:
+      index:
+        user: Автор
+        question: Вопрос
+        url: Ссылка
+
     tests:
       index:
         header: Тесты
