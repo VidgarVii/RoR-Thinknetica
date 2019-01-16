@@ -13,6 +13,8 @@ module TestGuru
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :ru
 
+    config.autoload_paths << "#{Rails.root}/lib/clients"
+
     config.generators do |g|
       g.template_engine :slim
     end
