@@ -4,7 +4,9 @@ h1 = t('.header')
     table.table.table-hover.table-striped
       thead
         tr.bg-primary
-          th = t('.names')
+          th#nameTest
+            = t('.names')
+            i.fa.fa-sort-desc aria-hidden="true"
           th = t('.category')
           th = t('.count_quests')
           th
