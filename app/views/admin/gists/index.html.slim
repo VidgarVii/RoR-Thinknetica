@@ -1,0 +1,11 @@
+h1 Gists
+.row
+  .col-12.col-md-8.offset-2
+    table.table.table-hover.table-striped
+      thead
+        tr
+          th = t('.user')
+          th = t('.question')
+          th = t('.url')
+      tbody
+        = render @gists

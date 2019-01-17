@@ -1,10 +1,19 @@
 en:
+  sevices:
+    gist:
+      description: A questions about %{title} from TestGuru
   result_test_true: Test passed. Result %{count}% correct answers
   result_test_false: Test failed. Result %{count}% correct answers
   start: Run
   result: Result test
   answer: Answer
   admin:
+    gists:
+      index:
+        user: Author
+        question: Question
+        url: Link
+
     tests:
       index:
         header: Tests
@@ -97,3 +106,10 @@ en:
         create: 'Create %{model}'
         update: 'Update %{model}'
         submit: 'Save %{model}'
+
+  test_passages:
+    gist:
+      success: The Gist was created successfully %{link_gist}
+      failure: An error occurred while saving gist
+    show:
+      gist_create: Gist Question

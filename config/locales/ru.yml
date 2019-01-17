@@ -1,5 +1,8 @@
 ---
 ru:
+  sevices:
+    gist:
+      description: Вопрос %{title} от TestGuru
   category: Категория
   level: Уровень
   count_quests: Количество вопросов
@@ -7,19 +10,35 @@ ru:
   result: Результат теста
   result_test_true: Тест пройден. Результат %{count}% правильных ответов
   result_test_false: Тест не пройден. Результат %{count}% правильных ответов
+
+  test_passages:
+    gist:
+      success: Gist успешно создан %{link_gist}
+      failure: Во время сохранения gist произошла ошибка
+    show:
+      gist_create: Поделиться вопросом в Gist
+
   admin:
+    gists:
+      index:
+        user: Автор
+        question: Вопрос
+        url: Ссылка
+
     tests:
       index:
         header: Тесты
         category: Категории
         names: Названия тестов
         count_quests: Кол-во вопросов
+
   tests:
     index:
       header: Тесты
       category: Категории
       names: Названия тестов
       count_quests: Кол-во вопросов
+
   lesson_project: Учебный проект в онлайн-школе Thinknetica
   answer: Ответ
   question: Вопрос
