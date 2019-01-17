@@ -9,7 +9,7 @@ class TestPassagesController < ApplicationController
   def gist
     gist = GistQuestionService.new(@test_passage.current_question).call
     if gist.success?
-      Gist.create(url: gist.respons.html_url, user: current_user, question: @test_passage.current_question)
+      Gist.create(url: gist.responce.html_url, user: current_user, question: @test_passage.current_question)
       flash[:notice] = t('.success', link_gist: link_gist(gist))
     else
       flash[:alert] = t('.failure')
@@ -30,7 +30,7 @@ class TestPassagesController < ApplicationController
   private
 
   def link_gist(gist)
-    view_context.link_to('Gist', gist.respons.html_url)
+    view_context.link_to('Gist', gist.responce.html_url)
   end
 
   def set_test_passage

@@ -1,8 +1,8 @@
 class GistQuestionService
 
-  Result = Struct.new(:success?, :respons)
+  Result = Struct.new(:success?, :responce)
 
-  def initialize(question, client: setup_http_client)
+  def initialize(question, client: http_client)
     @client = client
     @question = question
     @test = @question.test
@@ -15,7 +15,7 @@ class GistQuestionService
 
   private
 
-  def setup_http_client
+  def http_client
     Octokit::Client.new(access_token: ENV['TOKEN_GITHUB_GIST'])
   end
 
