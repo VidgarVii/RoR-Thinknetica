@@ -46,13 +46,10 @@ document.addEventListener "turbolinks:load", ->
       email.classList.remove('success')
     submitInclude()
 
-# Включаем сабмит
+# Вкл/Откл сабмит
 
   submitInclude = () ->
-    if checker.email && checker.passwordConfirm && checker.password
-      submit.disabled = false
-    else
-      submit.disabled = true
+    submit.disabled = !(checker.email && checker.password && checker.passwordConfirm)
 
 # Включаем events
 
