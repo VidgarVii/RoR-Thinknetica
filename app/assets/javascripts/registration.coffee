@@ -3,22 +3,63 @@ document.addEventListener "turbolinks:load", ->
   signupForm = document.getElementById('new_user')
   passwordConfirmation = document.getElementById('user_password_confirmation')
   password = document.getElementById('user_password')
+  email = document.getElementById('user_email')
   submit = signupForm.getElementsByClassName('btn')[0]
 
-  passwordIncorrect = () ->
-    password.classList.add('error')
-    password.onkeyup = () ->
-      if password.value.length >= 6
-        password.classList.remove('error')
+  checker =
+    email: false
+    password: false
+    passwordConfirm: false
 
+# Валидаторы формы
 
   passwordValidate = () ->
+    if (password.value.length >= 6)
+      password.classList.remove('error')
+      checker.password = true
+    else
+      checker.password = false
+    submitInclude() # Чтоб автоматически отключать сабмит, вызов должен быть в конце функции
+
+
+  passwordConfirmValidate = () ->
+    if (password.value.length < 6)
+      password.classList.add('error')
+      return passwordValidate()
+    if (passwordConfirmation.value == password.value)
+      checker.passwordConfirm = true
+      password.classList.add('success')
+      passwordConfirmation.classList.add('success')
+    else
+      checker.passwordConfirm = false
+      password.classList.remove('success')
+      passwordConfirmation.classList.remove('success')
+    submitInclude()
+
+
+  emailValidate = () ->
+    if (email.value.match(/.+@.+\..+/i))
+      checker.email = true
+      email.classList.add('success')
+    else
+      checker.email = false
+      email.classList.remove('success')
+    submitInclude()
+
+# Включаем сабмит
+
+  submitInclude = () ->
+    if checker.email && checker.passwordConfirm && checker.password
+      submit.disabled = false
+    else
+      submit.disabled = true
+
+# Включаем events
+
+  if (signupForm && passwordConfirmation)
     passwordConfirmation.onkeyup = () ->
-      if password.value.length < 6 then passwordIncorrect()
-      if (this.value == password.value && password.value.length >= 6)
-        submit.disabled = false
-      else
-        submit.disabled = true
-
-
-  if (signupForm && passwordConfirmation) then passwordValidate()
+      passwordConfirmValidate()
+    password.onkeyup = () ->
+      passwordValidate()
+    email.onkeyup = () ->
+      emailValidate()
