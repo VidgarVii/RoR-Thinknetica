@@ -15,7 +15,7 @@ document.addEventListener "turbolinks:load", ->
   passwordValidate = () ->
     passwordConfirmation.onkeyup = () ->
       if password.value.length < 6 then passwordIncorrect()
-      if (this.value == password.value)
+      if (this.value == password.value && password.value.length >= 6)
         submit.disabled = false
       else
         submit.disabled = true
