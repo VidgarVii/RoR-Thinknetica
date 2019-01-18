@@ -3,15 +3,12 @@ h2 = t('.header')
   = devise_error_messages!
   .field
     = f.label :first_name
-    br
     = f.text_field :first_name, autofocus: true
   .field
     = f.label :last_name
-    br
     = f.text_field :last_name, autofocus: true
   .field
     = f.label :email
-    br
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
     = f.label :password
@@ -20,12 +17,10 @@ h2 = t('.header')
         | (
         = @minimum_password_length
         |  characters minimum)
-    br
     = f.password_field :password, autocomplete: "new-password"
   .field
     = f.label :password_confirmation
-    br
     = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit
-= render "devise/shared/links"
+  .field
+    = f.submit class: 'btn btn-success', disabled: true
+    = render "devise/shared/links"
