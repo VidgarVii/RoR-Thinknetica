@@ -4,7 +4,7 @@ document.addEventListener "turbolinks:load", ->
   passwordConfirmation = document.getElementById('user_password_confirmation')
   password = document.getElementById('user_password')
   email = document.getElementById('user_email')
-  submit = signupForm.getElementsByClassName('btn')[0]
+  if (signupForm) then submit = signupForm.getElementsByClassName('btn')[0]
 
   checker =
     email: false

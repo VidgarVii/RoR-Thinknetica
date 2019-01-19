@@ -63,6 +63,7 @@ ru:
   authenticate: Успех прохождения теста выше, если Вы авторизированы. Китайская мудрасть.
   actions:
     edit: Изменить
+    cancel: Отмена
     delete: Удалить
     delete?: Вы уверены что хотите удалить %{model}
     update:
@@ -201,6 +202,7 @@ ru:
       second: Секунд
       year: Год
   errors:
+    header: Ошибка
     format: "%{attribute} %{message}"
     messages:
       not_saved:

@@ -1,0 +1,7 @@
+= form_with model: [:admin, test], url: update_inline_admin_test_path(test),
+        local: true,
+        data: {test_id: test.id},
+        class: 'inline_form',
+        html: {style: 'display:none;'} do |f|
+  = f.text_field :title
+  = f.submit 'OK'

@@ -1,5 +1,14 @@
 tr
-  td.tests__name = link_to test.title, admin_test_path(test)
+  td.tests__name
+    = link_to test.title, admin_test_path(test)
+    = render 'form_inline', test: test == @test ? @test : test
   td = t("categories.#{test.category.title}")
   td.tests__count = test.questions.size
-  td = button_to t('start'), start_test_path(test)
+  td = button_tag t('actions.edit'), data: {test_id: test.id,
+                                            state: false},
+                                     class: 'btn btn-info edit'
+  td = link_to t('actions.delete'), admin_test_path(test),
+                                    method: :delete,
+                                    data: {confirm:  t('actions.delete?', model: test.model_name.human)},
+                                    role: 'button',
+                                    class: 'btn btn-danger'
