@@ -7,6 +7,8 @@ en:
   start: Run
   result: Result test
   answer: Answer
+  errors:
+    header: Fail
   admin:
     gists:
       index:
@@ -19,7 +21,7 @@ en:
         header: Tests
         category: Categories
         names: Name tests
-        count_quests: Count questionsв
+        count_quests: Count questions
   tests:
     index:
       header: Tests
@@ -40,6 +42,8 @@ en:
   send_password_instructions: Send me reset password instructions
   new_password: New password
   actions:
+    edit: Edit
+    cancel: Cancel
     delete?: Are you sure you want to delete %{model}
     update:
       test: Edit test
