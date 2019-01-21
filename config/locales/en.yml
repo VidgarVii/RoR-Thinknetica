@@ -1,4 +1,5 @@
 en:
+  test_complited: TestGuru. You have completed the test %{test}
   sevices:
     gist:
       description: A questions about %{title} from TestGuru
