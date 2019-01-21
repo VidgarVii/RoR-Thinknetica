@@ -1,2 +1,0 @@
-class FeedbackMailer < ApplicationMailer
-end

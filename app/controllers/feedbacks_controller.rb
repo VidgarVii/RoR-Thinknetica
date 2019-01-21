@@ -13,6 +13,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feadback_params)
     @feedback.author = current_user
     if @feedback.save
+      FeedbacksMailer.send_message(@feedback).deliver_now
       flash[:notice] = t('.msg_send')
       redirect_to feedbacks_path
     else
