@@ -6,7 +6,7 @@ footer
       i.fa.fa-copyright aria-hidden='true'
       = github_url('VidgarVii', 'RoR-Thinknetica')
       br
-      = link_to t('feedbacks.index.header'), feedbacks_path
+      = link_to t('feedbacks.index.header'), feedbacks_path if current_user
     .shcool
       = link_to t('lesson_project'),
                 'http://thinknetica.com/',
