@@ -11,6 +11,17 @@ ru:
   result_test_true: Тест пройден. Результат %{count}% правильных ответов
   result_test_false: Тест не пройден. Результат %{count}% правильных ответов
 
+  feedbacks:
+    index:
+      header: Обратная связь
+      send_message: Отправить сообщение
+    new:
+      header: Создать сообщение
+    form:
+      submit: Отправть
+    create:
+      msg_send: Сообщение отправлено
+
   test_passages:
     gist:
       success: Gist успешно создан %{link_gist}

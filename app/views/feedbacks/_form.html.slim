@@ -1,0 +1,12 @@
+= form_with model: @feedback, local: true, class: 'feedback' do |f|
+  = render 'shared/form_errors', resource: @feedback
+  .field
+    = f.label :title
+    br
+    = f.text_field :title
+  .field
+    = f.label :body
+    br
+    = f.text_area :body
+  .field
+    = f.submit t('.submit'), class: 'btn btn-success'
