@@ -4,7 +4,7 @@ h1 = @test_passage.test.title
   #progressBar[data-progress="#{progresbar(@test_passage.current_question_number, @test_passage.test.questions.size)}"]
     .block
 hr
-h2 = @test_passage.current_question.body
+h2 = @test_passage.current_question.body.html_safe
 = form_with url: test_passage_path(@test_passage), local: true, method: :put, class: 'test_passages' do |form|
   = form.collection_check_boxes :answer_ids,
           @test_passage.current_question.answers,

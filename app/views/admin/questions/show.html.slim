@@ -1,6 +1,6 @@
 h1 = t('question')
 
-p.strong.center = @question.body
+p.strong.center = @question.body.html_safe
 ol
   = render @question.answers
 
