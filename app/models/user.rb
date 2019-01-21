@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :registerable,
          :recoverable,
          :rememberable,
-         :validatable
+         :validatable,
+         :confirmable
 
   has_many :authored_tests, class_name: 'Test'
   has_many :test_passages, dependent: :delete_all
