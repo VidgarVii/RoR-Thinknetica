@@ -9,6 +9,18 @@ en:
   answer: Answer
   errors:
     header: Fail
+
+    feedbacks:
+      index:
+        header: Feedback
+        send_message: Send message
+      new:
+        header: Create message
+      form:
+        submit: Send
+      create:
+        msg_send: The message is sent
+
   admin:
     gists:
       index:

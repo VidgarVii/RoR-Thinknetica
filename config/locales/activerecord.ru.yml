@@ -1,6 +1,7 @@
 ru:
   activerecord:
     models:
+      feedback: Обратная связь
       category:
         one: Категория
         other: Категории
@@ -15,6 +16,9 @@ ru:
         one: Вопрос
         other: Вопросы
     attributes:
+      feedback:
+        title: Тема
+        body: Сообщение
       test:
         title: Описание теста
         level: Уровень
