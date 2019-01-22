@@ -5,7 +5,8 @@ class BadgeService
   # Бог - получил все ачивки
 
   def call
-
+    # current_user.badges << badge
+    # ???????
   end
 
   private
