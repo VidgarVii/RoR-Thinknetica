@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2019_01_22_185311) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "badges_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -106,13 +113,6 @@ ActiveRecord::Schema.define(version: 2019_01_22_185311) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["type"], name: "index_users_on_type"
-  end
-
-  create_table "users_and_badges", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "badge_id"
-    t.index ["badge_id"], name: "index_users_and_badges_on_badge_id"
-    t.index ["user_id"], name: "index_users_and_badges_on_user_id"
   end
 
   add_foreign_key "feedbacks", "users"
