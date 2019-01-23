@@ -11,4 +11,11 @@ h1 = header_form(@badge, 'badge')
         = form.label :description, class: 'col-md-4 col-form-label'
         = form.text_field :description, class: 'form-control col-md-4'
       .form-group.row
+        = form.label :image, class: 'col-md-4 col-form-label'
+        = form.text_field :image, class: 'form-control col-md-4'
+      .form-group.row
+        = form.label :badge_type, class: 'col-md-4 col-form-label'
+        = form.select :badge_type, [['Бог', 'god?'], ['Безумие', 'madness?'], ['Первый раз','first_test?'], ['Geek', 'geek?']],
+                      class: 'form-control col-md-4'
+      .form-group.row
         = form.submit class: 'btn btn-primary'

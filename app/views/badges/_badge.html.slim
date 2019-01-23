@@ -4,5 +4,6 @@ tr
                                             role: 'button',
                                             aria: { expanded: 'false', controls: "collapse" }
     .collapse[id="collapse#{badge.id}"]
-      .card.card-body
+      .card.card-body.collapse_card
+        = image_tag badge.image, class: 'badge_image'
         = badge.description
