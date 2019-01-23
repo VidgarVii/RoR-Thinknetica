@@ -4,6 +4,12 @@ class BadgeService
   # Гик - прошел все тесты на 100% по программированию
   # Бог - получил все ачивки
 
+  def initialize(test_passage)
+    5.times do
+      puts test_passage.user
+    end
+  end
+
   def call
     # current_user.badges << badge
     # ???????
@@ -24,7 +30,13 @@ class BadgeService
   end
 
   def madness?
-    @result_of_search.size >= 10
+    @result_of_search.size >= urrent_user.test_passages.where(test_id: test_ids)
+    check = true
+    code_test_passages.each { |test_passage| check = false if test_passage.result != 100.0 }
+    check
+  end
+
+  def god?dd 10
   end
 
   def first_test?
