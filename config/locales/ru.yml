@@ -1,5 +1,6 @@
 ---
 ru:
+  badge: Достижения
   test_complited: TestGuru. Вы завершили тест %{test}
   sevices:
     gist:

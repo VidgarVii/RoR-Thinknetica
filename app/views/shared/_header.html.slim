@@ -4,7 +4,13 @@ header
     .authenticate
       - if user_signed_in?
         = link_to 'Админка', admin_tests_path if current_user.admin?
-        = content_tag :span, current_user.first_name
+        .dropdown.nav-item
+          = link_to current_user.first_name, '#',
+                               class: 'nav-link dropdown-toggle',
+                               data: {toggle: 'dropdown'},
+                               role: 'button'
+          .dropdown-menu
+            = link_to t('badge'), badges_path, class: 'dropdown-item'
         = link_to t('exit'), destroy_user_session_path, method: :delete
       - else
         = link_to t('signin'), new_user_session_path

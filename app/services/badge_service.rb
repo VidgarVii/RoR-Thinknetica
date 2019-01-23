@@ -1,8 +1,9 @@
 class BadgeService
   # Безумие - Если 10 раз прошел один и тот же тест и не получил 100%
-  # Первый тест - Пройденный первый тест на 100%
+  # C первого раза - Пройденный тест на 100%  с первого раза
   # Гик - прошел все тесты на 100% по программированию
   # Бог - получил все ачивки
+  # Первый раз - пройден первый тест
 
   def initialize(test_passage)
     @test_passage = test_passage
@@ -11,8 +12,11 @@ class BadgeService
   end
 
   def call
-    # current_user.badges << badge
-    # ???????
+    set_test_passages
+
+    Badge.find_each do |badge|
+      @user.badges << badge if send badge.badge_type
+    end
   end
 
   private
@@ -26,10 +30,10 @@ class BadgeService
   end
 
   def madness?
-    test_passages = @user.test_passages.where(test: @test)
-    return false if test_passages.count < 10
+    return false if @set_test_passages.count < 10
+
     result = true
-    test_passages.each { |tp| result = false if tp.result == 100.0 }
+    @set_test_passages.each { |tp| result = false if tp.result == 100.0 }
     result
   end
 
@@ -37,7 +41,15 @@ class BadgeService
     Badge.count == @user.badges.size
   end
 
-  def first_test?
-    @user.test_passages.where(test: @test).count == 1
+  def the_first_time?
+    @set_test_passages.count == 1
+  end
+
+  def first_test
+    @set_test_passages.count == 1
+  end
+
+  def set_test_passages
+    @set_test_passages = @user.test_passages.where(test: @test)
   end
 end
