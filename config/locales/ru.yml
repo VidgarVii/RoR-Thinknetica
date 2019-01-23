@@ -12,6 +12,12 @@ ru:
   result_test_true: Тест пройден. Результат %{count}% правильных ответов
   result_test_false: Тест не пройден. Результат %{count}% правильных ответов
 
+  badges:
+    index:
+      header: Ваши достижения
+      miss_badge: Осталось заработать
+      description: Описание
+
   feedbacks:
     index:
       header: Обратная связь
@@ -31,6 +37,11 @@ ru:
       gist_create: Поделиться вопросом в Gist
 
   admin:
+    badges:
+      index:
+        header: Достижения
+        description: Описание
+        create: Создать
     gists:
       index:
         user: Автор

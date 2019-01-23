@@ -1,0 +1,8 @@
+tr
+  td
+    = link_to badge.name, "#collapse#{badge.id}", data: { toggle: 'collapse' },
+                                            role: 'button',
+                                            aria: { expanded: 'false', controls: "collapse" }
+    .collapse[id="collapse#{badge.id}"]
+      .card.card-body
+        = badge.description

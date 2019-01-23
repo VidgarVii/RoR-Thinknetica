@@ -7,6 +7,7 @@ header
       ul.navbar-nav.m-auto
         li.nav-item = link_to t('test'), admin_tests_path, class: 'nav-link'
         li.nav-item = link_to 'Gists', admin_gists_path, class: 'nav-link'
+        li.nav-item = link_to 'Badges', admin_badges_path, class: 'nav-link'
       .authenticate
         - if user_signed_in?
           span = current_user.first_name

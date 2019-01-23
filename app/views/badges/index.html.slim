@@ -1,0 +1,23 @@
+h1 = t('.header')
+.row
+  .col-12.col-md-9.offset-2
+    table.table.table-hover.table-striped
+      thead
+        tr
+          th = t('.description')
+      tbody
+        = render @current_badges
+
+h3 = t('.miss_badge')
+.row
+  .col-12.col-md-9.offset-2
+    table.table.table-hover.table-striped
+      thead
+        tr
+          th = t('.description')
+      tbody
+        = render @badges
+
+
+
+= link_to t('.create'), new_admin_badge_path, class: 'btn btn-success'

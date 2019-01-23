@@ -1,0 +1,11 @@
+tr
+  td
+    h5 = badge.name
+    p = badge.description
+  th = link_to t('actions.edit'), edit_admin_badge_path(badge),
+                                  class: 'btn btn-info'
+  th = link_to t('actions.delete'), admin_badge_path(badge),
+                                    method: :delete,
+                                    data: {confirm:  t('actions.delete?', model: badge.model_name.human)},
+                                    role: 'button',
+                                    class: 'btn btn-danger'

@@ -1,6 +1,6 @@
 class BadgesController < ApplicationController
   def index
     @current_badges = current_user.badges
-    @badges = Badge.all
+    @badges = Badge.where.not(id: @current_badges.ids)
   end
 end
