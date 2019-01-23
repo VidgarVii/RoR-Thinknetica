@@ -15,7 +15,7 @@ class BadgeService
     set_test_passages
 
     Badge.find_each do |badge|
-      @user.badges << badge if send badge.badge_type
+      @user.badges << badge if send(badge.badge_type)
     end
   end
 
@@ -42,10 +42,12 @@ class BadgeService
   end
 
   def the_first_time?
-    @set_test_passages.count == 1
+    return false if @set_test_passages.count > 1
+
+    @test_passage.result == 100.0
   end
 
-  def first_test
+  def first_test?
     @set_test_passages.count == 1
   end
 
