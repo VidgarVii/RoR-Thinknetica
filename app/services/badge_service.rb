@@ -5,9 +5,9 @@ class BadgeService
   # Бог - получил все ачивки
 
   def initialize(test_passage)
-    5.times do
-      puts test_passage.user
-    end
+    @test_passage = test_passage
+    @user = test_passage.user
+    @test = test_passage.test
   end
 
   def call
@@ -19,31 +19,25 @@ class BadgeService
 
   def geek?
     test_ids = Category.find(1).tests.ids
-    code_test_passages = current_user.test_passages.where(test_id: test_ids)
+    code_test_passages = @user.test_passages.where(test_id: test_ids)
     check = true
     code_test_passages.each { |test_passage| check = false if test_passage.result != 100.0 }
     check
-  end
-
-  def god?
-    current_user.badges.size == Badge.count
   end
 
   def madness?
-    @result_of_search.size >= urrent_user.test_passages.where(test_id: test_ids)
-    check = true
-    code_test_passages.each { |test_passage| check = false if test_passage.result != 100.0 }
-    check
+    test_passages = @user.test_passages.where(test: @test)
+    return false if test_passages.count < 10
+    result = true
+    test_passages.each { |tp| result = false if tp.result == 100.0 }
+    result
   end
 
-  def god?dd 10
+  def god?
+    Badge.count == @user.badges.size
   end
 
   def first_test?
-    @result_of_search.size == 1
-  end
-
-  def search_tests(id)
-    @result_of_search = current_user.test_passages.where(test_id: id)
+    @user.test_passages.where(test: @test).count == 1
   end
 end
