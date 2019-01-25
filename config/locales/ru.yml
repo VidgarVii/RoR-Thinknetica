@@ -44,6 +44,13 @@ ru:
         header: Достижения
         description: Описание
         create: Создать
+      form:
+        the_first_time: Пройти тест с первого раза
+        god: Получить все достижения
+        madness: Завалить тест N раз
+        category: Пройти все тесты по категории
+        level: Пройти все тесты по уровню
+
     gists:
       index:
         user: Автор

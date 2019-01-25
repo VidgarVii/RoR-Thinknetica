@@ -1,10 +1,4 @@
 class BadgeService
-  # Безумие - Если 10 раз прошел один и тот же тест и не получил 100%
-  # C первого раза - Пройденный тест на 100%  с первого раза
-  # Гик - прошел все тесты на 100% по программированию
-  # Бог - получил все ачивки
-  # Первый раз - пройден первый тест
-
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
@@ -14,43 +8,34 @@ class BadgeService
   end
 
   def call
-    Badge.find_each { |badge| @earned_badges << badge if send(badge.badge_type) }
+    Badge.find_each { |badge| @earned_badges << badge if send(badge.badge_type, badge.option) }
     @earned_badges
   end
 
   private
 
   def category?(category)
-    test_ids = Category.find(1).tests.ids
+    test_ids = Category.find(category).tests.ids
     test_passages = @user.test_passages.where(test_id: test_ids)
-    test_passages.all? { |test_passage| test_passage.success? }
+    test_passages.all?(&:success?)
   end
 
   def madness?(count)
     return false if @current_test_passages.count != count
 
-    @current_test_passages.any? { |test_passage| test_passage.success? } ? true : false
+    @current_test_passages.none?(&:success?)
   end
 
-  def god?
-    Badge.count == @user.badges.size
+  def god?(_params)
+    Badge.count == @user.badges.uniq.size
   end
 
-  def the_first_time?
-    return false if @current_test_passages.count > 1
-
-    @test_passage.success?
-  end
-
-  def first_test?
-    @current_test_passages.count == 1
+  def the_first_time?(_params)
+    @current_test_passages.count == 1 if @test_passage.success?
   end
 
   def passed_tests_of_level?(level)
-    tests_with_level = Test.send(level)
-    return false unless tests_with_level.include?(@test)
-
-    @test_passage.where(test: tests_with_level)
+    @current_test_passages.size == Test.where(level: level.to_i).count
   end
 
   def set_test_passages
