@@ -9,32 +9,27 @@ class BadgeService
     @test_passage = test_passage
     @user = test_passage.user
     @test = test_passage.test
+    @earned_badges = []
+    set_test_passages
   end
 
   def call
-    set_test_passages
-
-    Badge.find_each do |badge|
-      @user.badges << badge if send(badge.badge_type)
-    end
+    Badge.find_each { |badge| @earned_badges << badge if send(badge.badge_type) }
+    @earned_badges
   end
 
   private
 
-  def geek?
+  def category?(category)
     test_ids = Category.find(1).tests.ids
-    code_test_passages = @user.test_passages.where(test_id: test_ids)
-    check = true
-    code_test_passages.each { |test_passage| check = false if test_passage.result != 100.0 }
-    check
+    test_passages = @user.test_passages.where(test_id: test_ids)
+    test_passages.all? { |test_passage| test_passage.success? }
   end
 
-  def madness?
-    return false if @set_test_passages.count < 10
+  def madness?(count)
+    return false if @current_test_passages.count != count
 
-    result = true
-    @set_test_passages.each { |tp| result = false if tp.result == 100.0 }
-    result
+    @current_test_passages.any? { |test_passage| test_passage.success? } ? true : false
   end
 
   def god?
@@ -42,16 +37,23 @@ class BadgeService
   end
 
   def the_first_time?
-    return false if @set_test_passages.count > 1
+    return false if @current_test_passages.count > 1
 
-    @test_passage.result == 100.0
+    @test_passage.success?
   end
 
   def first_test?
-    @set_test_passages.count == 1
+    @current_test_passages.count == 1
+  end
+
+  def passed_tests_of_level?(level)
+    tests_with_level = Test.send(level)
+    return false unless tests_with_level.include?(@test)
+
+    @test_passage.where(test: tests_with_level)
   end
 
   def set_test_passages
-    @set_test_passages = @user.test_passages.where(test: @test)
+    @current_test_passages = @user.test_passages.where(test: @test)
   end
 end

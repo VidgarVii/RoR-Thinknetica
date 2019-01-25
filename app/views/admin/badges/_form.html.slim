@@ -15,8 +15,8 @@ h1 = header_form(@badge, 'badge')
         = form.text_field :image, class: 'form-control col-md-4'
       .form-group.row
         = form.label :badge_type, class: 'col-md-4 col-form-label'
-        = form.select :badge_type, [['С первого раза', 'the_first_time?'], ['Бог', 'god?'], ['Безумие', 'madness?'],
-                                    ['Первый раз','first_test?'], ['Geek', 'geek?']],
+        = form.select :badge_type, [['С первого раза', TYPE_BADGES[0], ['Бог', TYPE_BADGES[1], ['Безумие', TYPE_BADGES[2],
+                                    ['Первый раз', TYPE_BADGES[3], ['Geek', TYPE_BADGES[4]],
                       class: 'form-control col-md-4'
       .form-group.row
         = form.submit class: 'btn btn-primary'

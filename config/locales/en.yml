@@ -1,4 +1,5 @@
 en:
+  earned_badge: Congratulations! You have earned the Badge
   test_complited: TestGuru. You have completed the test %{test}
   sevices:
     gist:

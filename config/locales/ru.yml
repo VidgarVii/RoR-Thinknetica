@@ -1,5 +1,6 @@
 ---
 ru:
+  earned_badge: Поздравляем! Вы заработали достижение
   badge: Достижения
   test_complited: TestGuru. Вы завершили тест %{test}
   sevices:

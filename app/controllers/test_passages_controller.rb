@@ -21,7 +21,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      BadgeService.new(@test_passage).call
+      distribution_badge(BadgeService.new(@test_passage).call)
       TestPassageComplitedMailer.test_complited(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
@@ -37,5 +37,12 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def distribution_badge(badges)
+    unless badges.empty?
+      current_user.badges << badges
+      flash[:notice] = I18n.t('earned_badge')
+    end
   end
 end
