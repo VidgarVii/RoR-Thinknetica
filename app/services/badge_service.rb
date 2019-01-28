@@ -4,10 +4,11 @@ class BadgeService
     @user = test_passage.user
     @test = test_passage.test
     set_test_passages
+    @badges = Badge.where.not(id: @user.badges.ids)
   end
 
   def call
-    Badge.select { |badge| send(badge.badge_type, badge.option) }
+    @badges.select { |badge| send(badge.badge_type, badge.option) }
   end
 
   private
