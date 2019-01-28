@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show result update gist]
+  before_action :set_test_passage, only: %i[show result update gist distribution_badge]
 
   def show; end
 
@@ -21,7 +21,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      distribution_badge(BadgeService.new(@test_passage).call)
+      distribution_badge
       TestPassageComplitedMailer.test_complited(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
@@ -39,7 +39,8 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
   end
 
-  def distribution_badge(badges)
+  def distribution_badge
+    badges = BadgeService.new(@test_passage).call
     unless badges.empty?
       current_user.badges << badges
       flash[:notice] = I18n.t('earned_badge')

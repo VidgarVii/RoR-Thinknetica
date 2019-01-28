@@ -3,21 +3,21 @@ class BadgeService
     @test_passage = test_passage
     @user = test_passage.user
     @test = test_passage.test
-    @earned_badges = []
     set_test_passages
   end
 
   def call
-    Badge.find_each { |badge| @earned_badges << badge if send(badge.badge_type, badge.option) }
-    @earned_badges
+    Badge.select { |badge| send(badge.badge_type, badge.option) }
   end
 
   private
 
   def category?(category)
-    test_ids = Category.find(category).tests.ids
-    test_passages = @user.test_passages.where(test_id: test_ids)
-    test_passages.all?(&:success?)
+    Test.all_with_category(category)
+
+    # test_ids = Category.find(category).tests.ids
+    # test_passages = @user.test_passages.where(test_id: test_ids)
+    # test_passages.all?(&:success?)
   end
 
   def madness?(count)
