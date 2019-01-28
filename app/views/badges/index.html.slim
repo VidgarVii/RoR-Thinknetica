@@ -7,7 +7,7 @@ h1 = t('.header')
           th
           th = t('.description')
       tbody
-        = render @current_badges
+        = render partial: 'current_badges', collection: @current_badges, as: :badge
 
 h3 = t('.miss_badge')
 .row
