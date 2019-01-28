@@ -13,11 +13,8 @@ class BadgeService
   private
 
   def category?(category)
-    Test.all_with_category(category)
-
-    # test_ids = Category.find(category).tests.ids
-    # test_passages = @user.test_passages.where(test_id: test_ids)
-    # test_passages.all?(&:success?)
+    tests = Test.all_with_category(category)
+    tests.all? { |test| @user.test_passages.where(test: test).any?(&:success?) }
   end
 
   def madness?(count)
