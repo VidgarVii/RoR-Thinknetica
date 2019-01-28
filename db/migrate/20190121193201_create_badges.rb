@@ -5,7 +5,7 @@ class CreateBadges < ActiveRecord::Migration[5.2]
       t.string :description, null: false
       t.string :image
       t.string :badge_type, null: false
-      t.integer :option
+      t.string :option
 
       t.timestamps
     end

@@ -15,12 +15,9 @@ h1 = header_form(@badge, 'badge')
         = form.text_field :image, class: 'form-control col-md-4'
       .form-group.row
         = form.label :badge_type, class: 'col-md-4 col-form-label'
-        = form.select :badge_type, [[t('.the_first_time'), Badge::TYPE_BADGES[0]], [t('.god'), Badge::TYPE_BADGES[1]],
-                                    [t('.madness'), Badge::TYPE_BADGES[2]], [t('.category'), Badge::TYPE_BADGES[3]],
-                                    [t('.level'), Badge::TYPE_BADGES[4]]],
-                                    class: 'form-control col-md-4'
+        = form.select :badge_type, Badge::TYPE_BADGES.map  { |type| [ t(type), type ] }
       .form-group.row
         = form.label :option, class: 'col-md-4 col-form-label'
-        = form.number_field :option, class: 'form-control col-md-4'
+        = form.text_field :option, class: 'form-control col-md-4'
       .form-group.row
         = form.submit class: 'btn btn-primary'

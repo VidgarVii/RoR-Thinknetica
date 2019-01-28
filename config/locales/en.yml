@@ -29,12 +29,6 @@ en:
         header: Badges
         description: Description
         create: Create
-      form:
-        the_first_time: Take the test the first time
-        god: Take all badges
-        madness: Failed tes N count
-        category: Take all tests by category
-        level: Take all tests by level
 
     gists:
       index:

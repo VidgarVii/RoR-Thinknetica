@@ -1,5 +1,10 @@
 ---
 ru:
+  the_first_time?: Пройти тест с первого раза
+  god?: Получить все достижения
+  madness?: Завалить тест N раз
+  category?: Пройти все тесты по категории
+  passed_tests_of_level?: Пройти все тесты по уровню
   earned_badge: Поздравляем! Вы заработали достижение
   badge: Достижения
   test_complited: TestGuru. Вы завершили тест %{test}
@@ -44,12 +49,6 @@ ru:
         header: Достижения
         description: Описание
         create: Создать
-      form:
-        the_first_time: Пройти тест с первого раза
-        god: Получить все достижения
-        madness: Завалить тест N раз
-        category: Пройти все тесты по категории
-        level: Пройти все тесты по уровню
 
     gists:
       index:
