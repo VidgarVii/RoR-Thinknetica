@@ -16,16 +16,19 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    result >= 85
+    self.score >= 85
   end
 
-  def calculate_result
-    self.result = correct_questions * 100.0 / test.questions.size if completed?
-    save!
+  def result
+    correct_questions * 100.0 / test.questions.size if completed?
   end
 
   def current_question_number
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
+  end
+
+  def cache_result
+    update!(score: result)
   end
 
   private

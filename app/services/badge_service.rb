@@ -14,14 +14,12 @@ class BadgeService
   private
 
   def category?(category)
-    tests = Test.all_with_category(category)
-    test_successfully?(tests) if @test.category.title == category
+    test_ids = Test.all_with_category(category).ids
+    test_ids.size == count_tests_success(test_ids) && @test.category.title == category
   end
 
   def madness?(count)
-    return false if @current_test_passages.count != count.to_i
-
-    @current_test_passages.none?(&:success?)
+    @current_test_passages.none?(&:success?) && @current_test_passages.count == count.to_i
   end
 
   def god?(_params)
@@ -33,16 +31,12 @@ class BadgeService
   end
 
   def passed_tests_of_level?(level)
-    tests = Test.where(level: level)
-    test_successfully?(tests) if @test.level == level.to_i
+    test_ids = Test.where(level: level).ids
+    test_ids.size == count_tests_success(test_ids) && @test.level == level.to_i
   end
 
-  def test_successfully?(tests)
-    if tests.exists?
-      tests.all? { |test| @user.test_passages.where(test: test).any?(&:success?) }
-    else
-      false
-    end
+  def count_tests_success(test_ids)
+    @user.test_passages.where(test_id: test_ids).select(&:success?).size
   end
 
   def set_test_passages

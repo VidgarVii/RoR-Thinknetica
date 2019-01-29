@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show result update gist assign_badge]
+  before_action :set_test_passage, only: %i[show result update gist]
 
   def show; end
 
@@ -21,7 +21,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      @test_passage.calculate_result
+      @test_passage.cache_result
       assign_badge
       TestPassageComplitedMailer.test_complited(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
