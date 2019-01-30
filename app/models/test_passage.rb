@@ -3,7 +3,11 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true, foreign_key: 'question_id'
 
+  PASSING_SCORE = 85
+
   before_validation :before_validation_set_first_question, on: :create
+
+  scope :successful, -> { where('score >= ?', PASSING_SCORE) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answers?(answer_ids)
@@ -16,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    self.score >= 85
+    score >= PASSING_SCORE
   end
 
   def result

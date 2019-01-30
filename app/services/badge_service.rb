@@ -14,8 +14,10 @@ class BadgeService
   private
 
   def category?(category)
+    return false unless @test.category.title == category
+
     test_ids = Test.all_with_category(category).ids
-    test_ids.size == count_tests_success(test_ids) && @test.category.title == category
+    test_ids.size == count_tests_success(test_ids)
   end
 
   def madness?(count)
@@ -31,12 +33,14 @@ class BadgeService
   end
 
   def passed_tests_of_level?(level)
+    return false unless @test.level == level.to_i
+
     test_ids = Test.where(level: level).ids
-    test_ids.size == count_tests_success(test_ids) && @test.level == level.to_i
+    test_ids.size == count_tests_success(test_ids)
   end
 
   def count_tests_success(test_ids)
-    @user.test_passages.where(test_id: test_ids).select(&:success?).size
+    @user.test_passages.where(test_id: test_ids).successful.uniq.count
   end
 
   def set_test_passages
