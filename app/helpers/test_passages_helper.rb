@@ -14,4 +14,8 @@ module TestPassagesHelper
   def progresbar(current_question, count_question)
     current_question * 100 / count_question
   end
+
+  def time_left(time)
+    content_tag :span, t('datetime.distance_in_words.less_than_x_minutes', count: time)
+  end
 end

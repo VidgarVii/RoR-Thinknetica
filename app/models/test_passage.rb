@@ -39,6 +39,10 @@ class TestPassage < ApplicationRecord
     times_up <= Time.current
   end
 
+  def left_time
+    times_up.min - Time.current.min
+  end
+
   private
 
   def times_up

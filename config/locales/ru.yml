@@ -1,5 +1,6 @@
 ---
 ru:
+  time_left: Осталось времени
   the_first_time?: Пройти тест с первого раза
   god?: Получить все достижения
   madness?: Завалить тест N раз
@@ -186,10 +187,10 @@ ru:
         other: почти %{count} лет
       half_a_minute: меньше минуты
       less_than_x_minutes:
-        few: меньше %{count} минут
-        many: меньше %{count} минут
-        one: меньше %{count} минуты
-        other: меньше %{count} минуты
+        few: Осталось меньше %{count} минут
+        many: Осталось меньше %{count} минут
+        one: Осталось меньше %{count} минуты
+        other: Осталось меньше %{count} минуты
       less_than_x_seconds:
         few: меньше %{count} секунд
         many: меньше %{count} секунд
