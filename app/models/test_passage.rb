@@ -16,7 +16,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || times_up?
   end
 
   def success?
@@ -35,7 +35,15 @@ class TestPassage < ApplicationRecord
     update!(score: result)
   end
 
+  def times_up?
+    times_up <= Time.current
+  end
+
   private
+
+  def times_up
+    created_at + test.timer.minutes
+  end
 
   def correct_answers?(answer_ids)
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort

@@ -13,4 +13,7 @@ h1 = header_form(@test, 'test')
         = form.label :level, class: 'col-md-4 col-form-label'
         = form.number_field :level, class: 'form-control col-md-4'
       .form-group.row
+        = form.label :timer, class: 'col-md-4 col-form-label'
+        = form.number_field :timer, class: 'form-control col-md-4'
+      .form-group.row
         = form.submit class: 'btn btn-primary'
