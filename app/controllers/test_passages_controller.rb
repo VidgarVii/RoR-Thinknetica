@@ -18,7 +18,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    @test_passage.accept!(params[:answer_ids]) unless @test_passage.times_up?
 
     if @test_passage.completed?
       @test_passage.cache_result

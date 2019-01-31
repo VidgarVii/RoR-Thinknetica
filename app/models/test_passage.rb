@@ -36,11 +36,14 @@ class TestPassage < ApplicationRecord
   end
 
   def times_up?
-    times_up <= Time.current
+    test.timer.nil? ? false : times_up <= Time.current
   end
 
   def left_time
-    times_up.min - Time.current.min
+    return false if test.timer.nil?
+
+    time = times_up - Time.current
+    time.positive? ? time : 0
   end
 
   private

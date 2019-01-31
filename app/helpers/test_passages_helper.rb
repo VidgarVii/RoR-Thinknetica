@@ -16,6 +16,11 @@ module TestPassagesHelper
   end
 
   def time_left(time)
-    content_tag :span, t('datetime.distance_in_words.less_than_x_minutes', count: time)
+    return unless time
+
+    time = time.round
+    sec = time % 60
+    min = time / 60
+    content_tag :span, "#{min}:#{sec}", id: 'timer'
   end
 end

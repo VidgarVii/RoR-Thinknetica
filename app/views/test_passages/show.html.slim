@@ -3,9 +3,8 @@ h1 = @test_passage.test.title
   span #{@test_passage.current_question_number} \ #{@test_passage.test.questions.size}
   #progressBar[data-progress="#{progresbar(@test_passage.current_question_number, @test_passage.test.questions.size)}"]
     .block
-  #timer 20:00
-  .timer
-    = time_left(@test_passage.left_time)
+  = time_left @test_passage.left_time
+
 hr
 h2 = @test_passage.current_question.body.html_safe
 = form_with url: test_passage_path(@test_passage), local: true, method: :put, class: 'test_passages' do |form|
