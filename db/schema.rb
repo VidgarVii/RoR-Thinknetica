@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_01_30_102550) do
     t.string "description", null: false
     t.string "image"
     t.string "badge_type", null: false
-    t.string "option"
+    t.integer "option"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

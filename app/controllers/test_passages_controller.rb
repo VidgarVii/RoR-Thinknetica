@@ -4,7 +4,13 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result; end
+  def result
+    if @test_passage.completed?
+      @test_passage.cache_result
+      assign_badge
+      TestPassageComplitedMailer.test_complited(@test_passage).deliver_now
+    end
+  end
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
@@ -18,12 +24,9 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids]) unless @test_passage.times_up?
+    @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      @test_passage.cache_result
-      assign_badge
-      TestPassageComplitedMailer.test_complited(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

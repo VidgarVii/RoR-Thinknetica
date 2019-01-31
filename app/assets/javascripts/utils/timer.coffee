@@ -1,16 +1,16 @@
 document.addEventListener "turbolinks:load", ->
   startTimer = () ->
-    resultLink = window.location.href + '/result'
     timer = document.getElementById('timer')
     unless timer then return
 
+    resultLink = window.location.href + '/result'
+
     time = timer.innerHTML
-    array = time.split(':')
-    m = array[0]
-    s = array[1]
+    [m, s] = time.split(':')
 
     if (m <= 0 && s <= 0)
       window.location.replace(resultLink)
+#      window.location.reload()
       return
 
     if (s == '0' || s == '00')

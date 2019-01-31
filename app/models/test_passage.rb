@@ -10,6 +10,8 @@ class TestPassage < ApplicationRecord
   scope :successful, -> { where('score >= ?', PASSING_SCORE) }
 
   def accept!(answer_ids)
+    return if times_up?
+
     self.correct_questions += 1 if correct_answers?(answer_ids)
     self.current_question = next_question
     save!
@@ -53,7 +55,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    answer_ids ? correct_answers.ids.sort == answer_ids.map(&:to_i).sort : false
   end
 
   def correct_answers
