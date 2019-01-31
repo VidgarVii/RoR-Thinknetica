@@ -63,6 +63,8 @@ ru:
         category: Категории
         names: Названия тестов
         count_quests: Кол-во вопросов
+      show:
+        time: Таймер
 
   tests:
     index:

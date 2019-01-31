@@ -11,6 +11,9 @@ table.description
     tr
       th = t('count_quests')
       td = @test.questions.size
+    tr
+      th = t('.time')
+      td = @test.timer
 ul
   = render @questions
 
