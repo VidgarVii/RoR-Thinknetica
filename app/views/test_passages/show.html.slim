@@ -3,6 +3,7 @@ h1 = @test_passage.test.title
   span #{@test_passage.current_question_number} \ #{@test_passage.test.questions.size}
   #progressBar[data-progress="#{progresbar(@test_passage.current_question_number, @test_passage.test.questions.size)}"]
     .block
+  #timer 20:00
   .timer
     = time_left(@test_passage.left_time)
 hr
