@@ -6,7 +6,7 @@ document.addEventListener "turbolinks:load", ->
     [m, s] = time.split(':')
 
     if (m <= 0 && s <= 0)
-      document.forms[0].submit()
+      document.getElementById('sendAnswer').click()
       return
 
     if (s == '0' || s == '00')

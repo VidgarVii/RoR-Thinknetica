@@ -17,4 +17,4 @@ h2 = @test_passage.current_question.body.html_safe
     br
   = link_to t('.gist_create'), gist_test_passage_path(@test_passage), method: :post, role: 'button'
   br
-  = form.submit t('answer')
+  = form.submit t('answer'), id: 'sendAnswer'
